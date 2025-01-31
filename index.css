@@ -55,7 +55,7 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-/* Tablet and up (min-width instead of max-width) */
+/* Tablet and up */
 @media (min-width: 768px) {
   .container {
     width: 80vw;
