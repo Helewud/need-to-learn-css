@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  --text-preset-1-sm: 400 1rem/1.5 "Outfit", serif;
+  --text-preset-1-sm-bold: 600 1rem/1.5 "Outfit", serif;
+  --text-preset-1-mn-bold: 600 1.2rem/1.5 "Outfit", serif;
+  --text-preset-1-md: 400 1.5rem/1.5 "Outfit", serif;
+  --text-preset-2-lg: 400 1.8rem/1.5 "Young Serif", serif;
+  --text-preset-2-xlg: 400 2rem/1 "Young Serif", serif;
+
+  --spacing-1000: 5rem; /* 80px  */
+  --spacing-500: 2.5rem; /* 40px  */
+  --spacing-300: 1.5rem; /* 24px  */
+  --spacing-200: 1rem; /* 16px  */
+  --spacing-150: 0.75rem; /* 12px  */
+  --spacing-100: 0.5rem; /* 8px   */
+  --spacing-50: 0.25rem; /* 4px   */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+body {
+  background-color: var(--stone-100);
+}
+
+hr {
+  color: var(--stone-150);
+}
+
+ul,
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+  list-style-position: outside;
+  padding-left: 1rem;
+}
+
+li {
+  padding-left: 1.5rem;
+}
+
+.bullet-header {
+  font: var(--text-preset-1-sm-bold);
+}
+
+.mini-header {
+  font: var(--text-preset-2-lg);
+}
+
+main > img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  padding: var(--spacing-300);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+  font: var(--text-preset-1-sm);
+  color: var(--stone-600);
+}
+
+.card-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.preparation-card {
+  background-color: var(--stone-150);
+  padding: var(--spacing-300);
+  margin-top: var(--spacing-150) 0;
+  border-radius: var(--spacing-100);
+}
+
+.preparation-card > h2 {
+  font: var(--text-preset-1-mn-bold);
+}
+
+.instruction-card > ol > li::marker {
+  font: var(--text-preset-1-sm-bold);
+}
+
+.nutrition-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-150);
+}
+
+.nutrition-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.nutrition-row:not(:last-child) {
+  border-bottom: 2px solid var(--stone-150);
+  width: 100%;
+}
+
+.nutrition-row-content {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  padding: var(--spacing-150);
+  margin-left: var(--spacing-300);
+}
+
+.nutrition-row-content > p {
+  width: 50%;
+}
+
+@media (min-width: 720px) {
+  body {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-1000) 0;
+  }
+
+  main > img {
+    border-radius: var(--spacing-150);
+  }
+
+  main {
+    width: 40%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: var(--spacing-300);
+    border-radius: var(--spacing-150);
+    background-color: var(--white);
+  }
+
+  .banner {
+    border-radius: var(--spacing-150);
+  }
+
+  .nutrition-row-content {
+    margin-left: var(--spacing-500);
+  }
+
+  .nutrition-row-content > p {
+    width: 30%;
+  }
+}
