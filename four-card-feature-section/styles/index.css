@@ -115,11 +115,11 @@ header > p {
 }
 
 .card > img {
-  margin-block-start: var(--spacing3);
   inline-size: 3.5625rem;
   block-size: 3.5625rem;
   display: block;
   margin-left: auto;
+  margin-top: auto;
 }
 
 .stacked-card {
