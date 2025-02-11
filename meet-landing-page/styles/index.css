@@ -149,8 +149,11 @@ a > span {
   background-color: var(--color-cyan-600);
 }
 
-.hero-info > div > :first-child:hover {
+.hero-info > div > :first-child:hover,
+.hero-info > div > :first-child:focus,
+.hero-info > div > :first-child:active {
   background-color: #71c0d4;
+  border: none;
 }
 
 .hero-info > div > :nth-child(2) {
@@ -158,7 +161,9 @@ a > span {
   background-color: var(--color-purple-600);
 }
 
-.hero-info > div > :nth-child(2):hover {
+.hero-info > div > :nth-child(2):hover,
+.hero-info > div > :nth-child(2):focus,
+.hero-info > div > :nth-child(2):active {
   background-color: #b18bdd;
 }
 
@@ -305,7 +310,9 @@ a > span {
   background-color: var(--color-purple-600);
 }
 
-.cover-banner > a:hover {
+.cover-banner > a:hover,
+.cover-banner > a:focus,
+.cover-banner > a:active {
   background-color: #b18bdd;
 }
 
