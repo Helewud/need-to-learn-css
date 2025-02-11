@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+:root {
+  /* Spacing */
+  --ratio: 1.5;
+  --spacing-3: calc(var(--spacing-2) / var(--ratio));
+  --spacing-2: calc(var(--spacing-1) / var(--ratio));
+  --spacing-1: calc(var(--spacing0) / var(--ratio));
+  --spacing0: 1rem;
+  --spacing1: calc(var(--spacing0) * var(--ratio));
+  --spacing2: calc(var(--spacing1) * var(--ratio));
+  --spacing3: calc(var(--spacing2) * var(--ratio));
+  --spacing4: calc(var(--spacing3) * var(--ratio));
+  --spacing5: calc(var(--spacing4) * var(--ratio));
+
+  /* Font Size */
+  --size-2: 0.6875rem; /* 11px */
+  --size-1: 0.8125rem; /* 13px */
+  --size0: 1rem; /* 16px */
+  --size1: 1.25rem; /* 20px */
+
+  /* Colors */
+  --color-moderate-violet: #7541c8;
+  --color-very-dark-grayish-blue: #48556a;
+  --color-very-dark-blackish-blue: #19212e;
+  --color-off-white: #ecf2f8;
+  --color-white: #ffffff;
+
+  /* Font Family */
+  --font-base: serif;
+  --font-barlow: "Barlow Semi Condensed";
+}
+
+body {
+  font-size: var(--size0);
+  font-family: var(--font-base);
+  min-inline-size: 100vw;
+  min-block-size: 100vh;
+  background-color: var(--color-off-white);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing4) 0;
+}
+
+.testimonial {
+  inline-size: 80%;
+  block-size: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 24px;
+}
+
+.testimonial > * {
+  flex-basis: calc((100% - 90px) / 4);
+}
+
+.testimonial > *:first-child,
+.testimonial > *:nth-child(4) {
+  flex-basis: calc(((100% - 90px) / 4) * 2);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing0);
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: var(--spacing2);
+}
+
+.card > h2 {
+  font-size: var(--size1);
+  font-weight: 600;
+}
+
+.card > p {
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: 70%;
+}
+
+.card > .profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing0);
+}
+
+.card > .profile > img {
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: 50%;
+  border: 2px solid #ffffff50;
+}
+
+.card > .profile > p {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.card > .profile > p > *:nth-child(2) {
+  font-size: var(--size-2);
+  opacity: 50%;
+}
