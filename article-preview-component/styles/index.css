@@ -58,6 +58,7 @@ main {
   background-color: var(--color-white);
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 40px 40px -10px #c9d5e150;
 }
 
 main > img {
