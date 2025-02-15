@@ -12,10 +12,10 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script defer src="./index.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </head>
 
-  <body>
+  <body class="index-pg">
     <header>
       <h1 class="visually-hidden">News Letter Signup</h1>
     </header>
@@ -34,25 +34,38 @@
         />
       </section>
 
-      <section>
-        <h2>Stay updated!</h2>
-        <p>Join 60,000+ product managers receiving monthly updates on:</p>
-        <ul class="list-group">
-          <li>Product discovery and building what matters</li>
-          <li>Measuring to ensure updates are a success</li>
-          <li>And much more!</li>
-        </ul>
-        <form action="" method="post">
-          <label for="email"> Email Address</label>
-          <input
-            id="email"
-            type="text"
-            type="email"
-            placeholder="email@company.com"
-          />
+      <section class="content">
+        <div class="content-info">
+          <h2>Stay updated!</h2>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul class="list-group">
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+          </ul>
+        </div>
+        <form id="content-form" action="" method="post" novalidate>
+          <div>
+            <div>
+              <label for="email"> Email address</label>
+              <p class="validation-message"></p>
+            </div>
+            <input
+              id="email-input"
+              type="email"
+              placeholder="email@company.com"
+            />
+          </div>
 
-          <label for="submit-email">Subscribe to monthly newsletter</label>
-          <input id="submit-email" type="submit" />
+          <button
+            class="submit-button"
+            type="submit"
+            formaction="./success.html"
+            formtarget="_self"
+            formmethod="POST"
+          >
+            Subscribe to monthly newsletter
+          </button>
         </form>
       </section>
     </main>

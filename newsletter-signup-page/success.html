@@ -12,21 +12,25 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script defer src="./index.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </head>
 
-  <body>
+  <body class="success-pg">
     <header>
       <h1 class="visually-hidden">News Letter Signup</h1>
     </header>
 
-    <main>
-      <h2>Thanks for subscribing!</h2>
-      <p>
-        A confirmation email has been sent to ash@loremcompany.com. Please open
-        it and click the button inside to confirm your subscription.
-      </p>
-      <button type="button">Dismiss Message</button>
+    <main class="success-page">
+      <div class="success-page-content">
+        <img src="./assets/icons/icon-success.svg" alt="" />
+        <h2>Thanks for subscribing!</h2>
+        <p>
+          A confirmation email has been sent to
+          <strong class="email-value">ash@loremcompany.com</strong>. Please open
+          it and click the button inside to confirm your subscription.
+        </p>
+      </div>
+      <button type="button" class="submit-button">Dismiss Message</button>
     </main>
   </body>
 </html>

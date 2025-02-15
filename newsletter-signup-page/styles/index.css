@@ -14,6 +14,7 @@
   font-display: swap;
 }
 
+/* ===== Base Styles ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,4 +55,230 @@
 
 body {
   font-family: "Roboto Regular", serif;
+  color: var(--color-blue-800);
+  inline-size: 100vw;
+  block-size: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button,
+input {
+  block-size: 3.5rem;
+  border-radius: 8px;
+  border: none;
+}
+
+main {
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--size-200);
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: "Roboto Bold", serif;
+  font-size: clamp(2.5rem, 2.2143rem + 1.4286vw, 3.5rem);
+  line-height: 1;
+}
+
+.hero > * {
+  inline-size: 100%;
+}
+
+.desktop-hero {
+  display: none;
+}
+
+.content {
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-500);
+  padding: var(--size-500) var(--size-300);
+}
+
+.content-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-300);
+}
+
+.list-group {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+}
+
+.list-group li::before {
+  content: "";
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-image: url("../assets/icons/icon-list.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.list-group li {
+  display: flex;
+  gap: var(--size-200);
+  align-items: flex-start;
+}
+
+.submit-button {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blue-800);
+  color: var(--color-white);
+  font-family: "Roboto Bold";
+  font-size: var(--size-200);
+  transition: all 0.3s ease;
+}
+
+.submit-button:active,
+.submit-button:hover,
+.submit-button:focus {
+  background: linear-gradient(90deg, #ff6a3a 0%, #ff527b 100%);
+  box-shadow: 0px 16px 32px 0 #ff615550;
+}
+
+#email-input {
+  color: var(--color-grey);
+  padding: var(--size-200) var(--size-300);
+  border: 2px solid var(--color-grey);
+  font-size: var(--size-200);
+}
+
+#email-input:active,
+#email-input:hover,
+#email-input:focus {
+  color: var(--color-blue-800);
+  border-color: var(--color-blue-800);
+}
+
+#email-input.validation-error-state {
+  color: var(--color-red);
+  border-color: var(--color-red);
+  background-color: #ff615530;
+}
+
+#email-input.validation-error-state:active,
+#email-input.validation-error-state:hover,
+#email-input.validation-error-state:focus {
+  border-color: var(--color-red);
+}
+
+#content-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-300);
+  font-family: "Roboto Bold";
+  line-height: 1.5;
+}
+
+#content-form > :first-child {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+}
+
+#content-form > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#content-form > div > div > * {
+  color: var(--color-blue-800);
+  font-size: calc(var(--size-100) + var(--size-50));
+}
+
+#content-form > div > div > *.validation-message {
+  color: var(--color-red) !important;
+}
+
+#content-form > div > div > label:nth-child(2) {
+  color: var(--color-red);
+}
+
+.success-page {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--size-1300)) var(--size-300) var(--size-800)
+    var(--size-300);
+  font-size: var(--size-200);
+  line-height: 1.5;
+}
+
+.success-page-content > img {
+  inline-size: 64px;
+  block-size: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.success-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-400);
+}
+
+@media (min-width: 628px) {
+  body {
+    background-color: var(--color-blue-700);
+  }
+
+  main {
+    inline-size: 80%;
+    block-size: auto;
+    justify-content: center;
+    align-items: center;
+    padding: var(--size-500);
+    background-color: var(--color-white);
+    border-radius: var(--size-400);
+    gap: var(--size-500);
+  }
+
+  .hero {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .hero > * {
+    border-radius: var(--size-200);
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .success-page {
+    inline-size: 504px;
+    block-size: auto;
+    padding: var(--size-800);
+  }
+}
+
+@media (min-width: 950px) {
+  main {
+    inline-size: 904px;
+    flex-direction: row-reverse;
+  }
+
+  .mobile-hero {
+    display: none;
+  }
+
+  .desktop-hero {
+    display: inline;
+  }
 }
