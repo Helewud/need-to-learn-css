@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+:root {
+  /* Spacing */
+  --size-1300: 6.5rem; /* 104px */
+  --size-900: 4.5rem; /* 72px */
+  --size-800: 4rem; /* 64px */
+  --size-600: 3rem; /* 48px */
+  --size-500: 2.5rem; /* 40px */
+  --size-400: 2rem; /* 32px */
+  --size-300: 1.5rem; /* 24px */
+  --size-200: 1rem; /* 16px */
+  --size-100: 0.5rem; /* 8px */
+  --size-50: 0.25rem; /* 4px */
+
+  /* Colors */
+  --color-white: #fafafa;
+  --color-cyan-very-dark: hsl(183, 100%, 15%);
+  --color-cyan-dark-grayish: hsl(186, 14%, 43%);
+  --color-cyan-grayish: hsl(184, 14%, 56%);
+  --color-cyan-light-grayish: hsl(185, 41%, 84%);
+  --color-cyan-very-light-grayish: hsl(189, 41%, 97%);
+  --color-cyan-strong: hsl(172, 67%, 45%);
+}

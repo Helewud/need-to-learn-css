@@ -47,6 +47,10 @@ const projectList = [
     url: "./time-tracking-dashboard/index.html",
     title: "Time Tracking Dashboard",
   },
+  {
+    url: "./tip-calculator-app/index.html",
+    title: "Tip Calculator App",
+  },
 ];
 
 class ProjectList {
