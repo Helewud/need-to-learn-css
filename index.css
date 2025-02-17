@@ -20,12 +20,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 60px 20px;
 }
 
 .url-list {
   list-style: none;
   width: 80%;
+  max-width: 507px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -46,6 +47,7 @@ body {
   color: #f5efed;
   letter-spacing: 0.9px;
   text-decoration: none;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
@@ -53,21 +55,6 @@ body {
   background-color: #c82d44;
   color: #f5efed;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-/* Tablet and up */
-@media (min-width: 768px) {
-  .container {
-    width: 80vw;
-  }
-
-  .url-list {
-    width: 60%;
-  }
-
-  .url-list > li > a {
-    font-size: 18px;
-  }
 }
 
 .visually-hidden {
