@@ -12,7 +12,7 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script defer type="module" src="./scripts/index.js"></script>
+    <script defer src="./scripts/index.js" type="module"></script>
   </head>
 
   <body class="index-pg">
@@ -28,29 +28,45 @@
       <div class="tip-card">
         <div>
           <div class="form-input">
-            <div>
+            <div class="bill-amount-label">
               <label for="bill-amount">Bill</label>
             </div>
-            <input id="bill-amount" type="number" 22222 placeholder="0" />
+            <input
+              id="bill-amount-input"
+              placeholder="0"
+              onpaste="return false;"
+            />
           </div>
 
           <div class="tip-options">
-            <label for="tip-percentage">Select Tip %</label>
-            <div>
+            <div class="tip-percentage-label">
+              <label for="tip-percentage">Select Tip %</label>
+            </div>
+            <div class="tip-percentage-btn">
               <button id="tip-percentage" value="5">5%</button>
               <button id="tip-percentage" value="10">10%</button>
               <button id="tip-percentage" value="15">15%</button>
               <button id="tip-percentage" value="25">25%</button>
               <button id="tip-percentage" value="50">50%</button>
-              <input id="tip-percentage" type="number" placeholder="Custom" />
+              <input
+                id="tip-percentage"
+                type="number"
+                placeholder="Custom"
+                onpaste="return false;"
+              />
             </div>
           </div>
 
           <div class="form-input">
-            <div class="valiation-label-text">
+            <div class="tip-split-label">
               <label for="tip-split">Number of People</label>
             </div>
-            <input id="tip-split" type="number" placeholder="0" />
+            <input
+              id="tip-split-input"
+              type="number"
+              placeholder="0"
+              onpaste="return false;"
+            />
           </div>
         </div>
         <div class="tip-result">
@@ -70,7 +86,7 @@
               <p class="result-value">$0.00</p>
             </div>
           </div>
-          <button id="reset-btn" type="reset">reset</button>
+          <button id="reset-btn">reset</button>
         </div>
       </div>
     </main>

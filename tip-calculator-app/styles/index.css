@@ -103,6 +103,10 @@ button {
   transition: all 0.2s ease;
 }
 
+button > * {
+  inline-size: 15ch;
+}
+
 button:hover,
 button:active,
 button:focus {
@@ -132,7 +136,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: var(--size-200) var(--size-200) 0 0;
+  border-radius: var(--size-200);
   background-color: var(--color-white);
   gap: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
 }
@@ -158,18 +162,18 @@ input {
   justify-content: space-between;
 }
 
-#bill-amount,
-#tip-split {
+#bill-amount-input,
+#tip-split-input {
   background-repeat: no-repeat;
   background-size: auto calc(var(--size-200) + var(--size-50));
   background-position: var(--size-200) center;
 }
 
-#bill-amount {
+#bill-amount-input {
   background-image: url("../assets/icons/icon-dollar.svg");
 }
 
-#tip-split {
+#tip-split-input {
   background-image: url("../assets/icons/icon-person.svg");
 }
 
@@ -193,11 +197,11 @@ input {
 
 input#tip-percentage {
   text-align: center;
-  font-size: calc(var(--size-100) + var(--size-50));
+  font-size: calc(var(--size-200) + var(--size-50));
   padding: 0, var(--size-50);
 }
 
-.tip-options div > * {
+.tip-options .tip-percentage-btn > * {
   inline-size: calc((100% - var(--size-200)) / 2);
   block-size: var(--size-600);
   row-gap: var(--size-200);
@@ -265,7 +269,7 @@ input#tip-percentage {
   color: var(--color-cyan-very-dark);
 }
 
-.validation-error {
+input.validation-error {
   border: 2px solid #e17052;
 }
 
@@ -273,11 +277,10 @@ input#tip-percentage {
   color: #e17052;
 }
 
-/* @media (min-width: 59.25rem) {
-  .tip-card {
-    border-radius: var(--size-200);
-  }
-} */
+.btn-active-state {
+  color: var(--color-cyan-very-dark);
+  background-color: #9fe8df;
+}
 
 @media (min-width: 59.25rem) {
   .tip-card {
@@ -291,7 +294,7 @@ input#tip-percentage {
     block-size: 100%;
   }
 
-  .tip-options div > * {
+  .tip-options .tip-percentage-btn > * {
     inline-size: calc((100% - var(--size-200) * 2) / 3);
   }
 }
