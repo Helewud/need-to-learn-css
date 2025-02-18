@@ -195,13 +195,13 @@ input {
   gap: var(--size-200);
 }
 
-input#tip-percentage {
+#custom-tip {
   text-align: center;
   font-size: calc(var(--size-200) + var(--size-50));
   padding: 0, var(--size-50);
 }
 
-.tip-options .tip-percentage-btn > * {
+.tip-options .tip-percentage-buttons > * {
   inline-size: calc((100% - var(--size-200)) / 2);
   block-size: var(--size-600);
   row-gap: var(--size-200);
@@ -301,7 +301,7 @@ input.validation-error {
     block-size: 100%;
   }
 
-  .tip-options .tip-percentage-btn > * {
+  .tip-options .tip-percentage-buttons > * {
     inline-size: calc((100% - var(--size-200) * 2) / 3);
   }
 }

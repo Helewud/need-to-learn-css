@@ -2,6 +2,7 @@ import {
   calculateTip,
   isControlKey,
   isDecimalPoint,
+  isNumberKey,
   splitTip,
 } from "./helpers.js";
 import {
@@ -30,8 +31,8 @@ class TipSplitter {
       billAmountLabel: document.querySelector(".bill-amount-label"),
       tipSplitInput: document.querySelector("#tip-split-input"),
       tipSplitLabel: document.querySelector(".tip-split-label"),
-      tipPercentageButtons: document.querySelectorAll("button#tip-percentage"),
-      tipPercentageInput: document.querySelector("input#tip-percentage"),
+      tipButtons: document.querySelectorAll("button.tip-button"),
+      customTip: document.querySelector("#custom-tip"),
       tipPercentageLabel: document.querySelector(".tip-percentage-label"),
       tipAmountDisplay: document.querySelector(".tip-amount .result-value"),
       tipTotalDisplay: document.querySelector(".tip-total .result-value"),
@@ -52,7 +53,7 @@ class TipSplitter {
         allowDecimal: false,
       },
       {
-        inputElement: this.elements.tipPercentageInput,
+        inputElement: this.elements.customTip,
         labelElement: this.elements.tipPercentageLabel,
         maxLength: 2,
         allowDecimal: true,
@@ -62,7 +63,7 @@ class TipSplitter {
     // Object to hold the current values of inputs by their IDs.
     this.inputValues = {
       "bill-amount-input": 0.0,
-      "tip-percentage": 0.0,
+      "tip-input": 0.0,
       "tip-split-input": 0.0,
     };
   }
@@ -130,14 +131,14 @@ class TipSplitter {
     // Reset input values
     this.inputValues = {
       "bill-amount-input": 0,
-      "tip-percentage": 0,
+      "tip-input": 0,
       "tip-split-input": 0,
     };
 
     // Remove validation error styles from input fields
     this.elements.billAmountInput.classList.remove("validation-error");
     this.elements.tipSplitInput.classList.remove("validation-error");
-    this.elements.tipPercentageInput.classList.remove("validation-error");
+    this.elements.customTip.classList.remove("validation-error");
 
     // Remove validation error labels from input fields
     this.elements.billAmountLabel.classList.remove("validation-error-text");
@@ -147,12 +148,12 @@ class TipSplitter {
     // Clear input values and reset displayed results
     this.elements.billAmountInput.value = "";
     this.elements.tipSplitInput.value = "";
-    this.elements.tipPercentageInput.value = "";
+    this.elements.customTip.value = "";
     this.elements.tipAmountDisplay.textContent = "$0.00";
     this.elements.tipTotalDisplay.textContent = "$0.00";
 
     // Remove active state from all tip percentage buttons
-    for (const btn of this.elements.tipPercentageButtons) {
+    for (const btn of this.elements.tipButtons) {
       if (btn) {
         this.removeButtonActiveState(btn);
       }
@@ -166,7 +167,7 @@ class TipSplitter {
    */
   resolveTip(inputValues) {
     const billAmount = Number(inputValues["bill-amount-input"]);
-    const tipPercentage = Number(inputValues["tip-percentage"]);
+    const tipPercentage = Number(inputValues["tip-input"]);
     const splitCount = Number(inputValues["tip-split-input"]);
 
     const tipResult = {
@@ -214,7 +215,9 @@ class TipSplitter {
     maxAllowedLength,
     allowDecimal
   ) {
-    this.syncButtonState(inputElement);
+    // if (isNumberKey(event.key)) {
+    //   this.syncButtonState(inputElement);
+    // }
 
     // Prevent leading zero input.
     if (preventLeadingZeroInput(event)) {
@@ -273,7 +276,12 @@ class TipSplitter {
    * @param {Object} inputValues - The object storing input values.
    */
   handleBlurEvent(event, inputElement, labelElement, inputValues) {
-    inputValues[inputElement.id] = event.target && event.target["value"];
+    if (inputElement.id === "custom-tip") {
+      inputValues["tip-input"] = event.target && event.target["value"];
+    } else {
+      inputValues[inputElement.id] = event.target && event.target["value"];
+    }
+
     this.clearValidationError(inputElement, labelElement);
     this.calculateAndRenderResult();
   }
@@ -284,7 +292,7 @@ class TipSplitter {
    * @param {HTMLElement} inputElement - The input element.
    */
   syncButtonState(inputElement) {
-    if (inputElement.id === "tip-percentage" && inputElement.parentElement) {
+    if (inputElement.id === "custom-tip" && inputElement.parentElement) {
       for (const btn of inputElement.parentElement.children) {
         this.removeButtonActiveState(btn);
       }
@@ -345,8 +353,8 @@ class TipSplitter {
       }
 
       // Update stored tip percentage value and clear the input field.
-      this.inputValues[event.target["id"]] = event.target["value"];
-      this.elements.tipPercentageInput.value = "";
+      this.inputValues["tip-input"] = event.target["value"];
+      this.elements.customTip.value = "";
       // @ts-ignore
       this.addButtonActiveState(event.target);
       this.calculateAndRenderResult();
@@ -363,7 +371,7 @@ class TipSplitter {
     }
 
     // Attach click event listener to each tip percentage button.
-    for (const btn of this.elements.tipPercentageButtons) {
+    for (const btn of this.elements.tipButtons) {
       if (btn) {
         btn.addEventListener("click", this.initializeButtonInput.bind(this));
       }

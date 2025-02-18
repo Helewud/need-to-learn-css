@@ -12,7 +12,7 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script defer src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </head>
 
   <body class="index-pg">
@@ -29,7 +29,7 @@
         <div>
           <div class="form-input">
             <div class="bill-amount-label">
-              <label for="bill-amount">Bill</label>
+              <label for="bill-amount-input">Bill</label>
             </div>
             <input
               id="bill-amount-input"
@@ -40,16 +40,26 @@
 
           <div class="tip-options">
             <div class="tip-percentage-label">
-              <label for="tip-percentage">Select Tip %</label>
+              <label for="custom-tip">Select Tip %</label>
             </div>
-            <div class="tip-percentage-btn">
-              <button id="tip-percentage" value="5">5%</button>
-              <button id="tip-percentage" value="10">10%</button>
-              <button id="tip-percentage" value="15">15%</button>
-              <button id="tip-percentage" value="25">25%</button>
-              <button id="tip-percentage" value="50">50%</button>
+            <div class="tip-percentage-buttons">
+              <button class="tip-button" value="5" aria-label="5 percent tip">
+                5%
+              </button>
+              <button class="tip-button" value="10" aria-label="10 percent tip">
+                10%
+              </button>
+              <button class="tip-button" value="15" aria-label="15 percent tip">
+                15%
+              </button>
+              <button class="tip-button" value="25" aria-label="25 percent tip">
+                25%
+              </button>
+              <button class="tip-button" value="50" aria-label="50 percent tip">
+                50%
+              </button>
               <input
-                id="tip-percentage"
+                id="custom-tip"
                 type="number"
                 placeholder="Custom"
                 onpaste="return false;"
@@ -59,14 +69,9 @@
 
           <div class="form-input">
             <div class="tip-split-label">
-              <label for="tip-split">Number of People</label>
+              <label for="tip-split-input">Number of People</label>
             </div>
-            <input
-              id="tip-split-input"
-              type="number"
-              placeholder="0"
-              onpaste="return false;"
-            />
+            <input id="tip-split-input" type="number" placeholder="0" />
           </div>
         </div>
         <div class="tip-result">
