@@ -130,13 +130,13 @@ input {
 
 .tip-card {
   inline-size: 100%;
-  block-size: auto;
+  block-size: 100%;
   padding: clamp(2rem, 0.8571rem + 2.381vw, 3rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: var(--size-200);
+  border-radius: var(--size-200) var(--size-200) 0 0;
   background-color: var(--color-white);
   gap: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
 }
@@ -280,6 +280,13 @@ input.validation-error {
 .btn-active-state {
   color: var(--color-cyan-very-dark);
   background-color: #9fe8df;
+}
+
+@media (min-width: 48rem) {
+  .tip-card {
+    block-size: auto;
+    border-radius: var(--size-200);
+  }
 }
 
 @media (min-width: 59.25rem) {
