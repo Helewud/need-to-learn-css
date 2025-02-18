@@ -12,7 +12,7 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script defer src="./scripts/_index.js"></script>
+    <script defer type="module" src="./scripts/index.js"></script>
   </head>
 
   <body class="index-pg">
@@ -20,6 +20,59 @@
       <h1 class="visually-hidden">Tip Calculator App</h1>
     </header>
 
-    <main></main>
+    <main>
+      <div class="hero">
+        <img src="./assets/icons/logo.svg" alt="splitter caligraphy" />
+      </div>
+
+      <div class="tip-card">
+        <div>
+          <div class="form-input">
+            <div>
+              <label for="bill-amount">Bill</label>
+            </div>
+            <input id="bill-amount" type="number" 22222 placeholder="0" />
+          </div>
+
+          <div class="tip-options">
+            <label for="tip-percentage">Select Tip %</label>
+            <div>
+              <button id="tip-percentage" value="5">5%</button>
+              <button id="tip-percentage" value="10">10%</button>
+              <button id="tip-percentage" value="15">15%</button>
+              <button id="tip-percentage" value="25">25%</button>
+              <button id="tip-percentage" value="50">50%</button>
+              <input id="tip-percentage" type="number" placeholder="Custom" />
+            </div>
+          </div>
+
+          <div class="form-input">
+            <div class="valiation-label-text">
+              <label for="tip-split">Number of People</label>
+            </div>
+            <input id="tip-split" type="number" placeholder="0" />
+          </div>
+        </div>
+        <div class="tip-result">
+          <div>
+            <div class="tip-amount">
+              <p>
+                <span>Tip Amount</span>
+                <span class="minor-text">/ person</span>
+              </p>
+              <p class="result-value">$0.00</p>
+            </div>
+            <div class="tip-total">
+              <p>
+                <span>Total</span>
+                <span class="minor-text">/ person</span>
+              </p>
+              <p class="result-value">$0.00</p>
+            </div>
+          </div>
+          <button id="reset-btn" type="reset">reset</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
