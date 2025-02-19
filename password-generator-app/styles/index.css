@@ -1,0 +1,305 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/jet-brains-mono/JetBrainsMono-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Spacing */
+  --size-1300: 6.5rem; /* 104px */
+  --size-900: 4.5rem; /* 72px */
+  --size-800: 4rem; /* 64px */
+  --size-600: 3rem; /* 48px */
+  --size-500: 2.5rem; /* 40px */
+  --size-400: 2rem; /* 32px */
+  --size-300: 1.5rem; /* 24px */
+  --size-200: 1rem; /* 16px */
+  --size-100: 0.5rem; /* 8px */
+  --size-50: 0.25rem; /* 4px */
+
+  /* Colors */
+  --color-dark-grey: #24232c;
+  --color-grey: #817d92;
+  --color-almost-white: #e6e5ea;
+  --color-very-dark-grey: #18171f;
+  --color-neon-green: #a4ffaf;
+  --color-red: #f64a4a;
+  --color-orange: #fb7c58;
+  --color-yellow: #f8cd65;
+}
+
+body {
+  min-block-size: 100vh;
+  min-inline-size: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-almost-white);
+  background-color: #08070b;
+  font-family: "JetBrains Mono", serif;
+  font-weight: 500;
+  font-size: var(--size-200);
+  gap: var(--size-200);
+}
+
+header > * {
+  color: var(--color-grey);
+  font-size: clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem);
+  font-weight: 700;
+}
+
+main {
+  inline-size: clamp(21.4375rem, 17.1021rem + 18.4977vw, 33.75rem);
+  block-size: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-200);
+}
+
+.password-card {
+  inline-size: 100%;
+  block-size: clamp(4rem, 3.6479rem + 1.5023vw, 5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--size-200);
+  color: var(--color-grey);
+  background-color: var(--color-dark-grey);
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+}
+
+.password-display.password-generated {
+  color: var(--color-almost-white);
+}
+
+.copy-password {
+  display: flex;
+  align-items: center;
+  gap: var(--size-200);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-neon-green);
+}
+
+.copy-password > svg {
+  cursor: pointer;
+  fill: var(--color-neon-green);
+}
+
+.copy-password > svg:hover {
+  fill: var(--color-almost-white);
+}
+
+.copy-password > svg > path {
+  inline-size: auto;
+  block-size: calc(var(--size-200) + var(--size-50));
+  cursor: inherit;
+  fill: inherit;
+}
+
+.config-card {
+  inline-size: 100%;
+  block-size: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-400);
+  padding: var(--size-200);
+  background-color: var(--color-dark-grey);
+}
+
+.password-range {
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+}
+
+.password-length-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-length-label > :nth-child(2) {
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  color: var(--color-neon-green);
+  font-weight: 700;
+}
+
+#password-length-range {
+  inline-size: 100%;
+  block-size: 1.75rem;
+  background-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+#password-length-range::-webkit-slider-runnable-track {
+  block-size: var(--size-100);
+  background: linear-gradient(
+    to right,
+    var(--color-neon-green) 70%,
+    var(--color-very-dark-grey) 50%
+  );
+  transition: background 0.3s ease;
+}
+
+#password-length-range::-webkit-slider-thumb {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  background-color: var(--color-almost-white);
+  border-radius: 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -0.625rem;
+  cursor: pointer;
+}
+
+#password-length-range::-webkit-slider-thumb:hover {
+  background-color: var(--color-very-dark-grey);
+  outline: 0.125rem solid var(--color-neon-green);
+}
+
+.config-options {
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+  color: var(--color-almost-white);
+}
+
+.config-options div {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--size-200) + var(--size-50));
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+}
+
+.config-options div > input {
+  inline-size: calc(var(--size-200) + var(--size-50));
+  block-size: calc(var(--size-200) + var(--size-50));
+  background-color: inherit;
+  border: 0.125rem solid var(--color-almost-white);
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.config-options div > input.option-checked {
+  background-color: var(--color-neon-green);
+  background-image: url("../assets/icons/icon-check.svg");
+  background-repeat: no-repeat;
+  background-size: auto calc(var(--size-100) + var(--size-50));
+  background-position: center;
+}
+
+.password-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+}
+
+.password-strength {
+  inline-size: 100%;
+  block-size: clamp(3.5rem, 3.1479rem + 1.5023vw, 4.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--size-200);
+  background-color: var(--color-very-dark-grey);
+  color: var(--color-almost-white);
+  text-transform: uppercase;
+}
+
+.password-strength > p {
+  color: var(--color-grey);
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+}
+
+.strength-text {
+  font-size: clamp(1.125rem, 0.993rem + 0.5634vw, 1.5rem);
+  font-weight: 700;
+}
+
+.strength-display {
+  display: flex;
+  align-items: center;
+  gap: var(--size-200);
+}
+
+.strength-bar {
+  display: flex;
+  gap: var(--size-100);
+}
+
+.strength-bar > * {
+  inline-size: 0.625rem;
+  block-size: 1.75rem;
+  border: 0.125rem solid;
+}
+
+.strength-bar > .too-weak-strength {
+  background-color: var(--color-red);
+  border: 0;
+}
+
+.strength-bar > .weak-strength {
+  background-color: var(--color-orange);
+  border: 0;
+}
+
+.strength-bar > .medium-strength {
+  background-color: var(--color-yellow);
+  border: 0;
+}
+
+.strength-bar > .strong-strength {
+  background-color: var(--color-neon-green);
+  border: 0;
+}
+
+.generate-password {
+  inline-size: 100%;
+  block-size: clamp(3.5rem, 3.3019rem + 0.8451vw, 4.0625rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-200);
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--color-neon-green);
+  color: var(--color-very-dark-grey);
+  cursor: pointer;
+}
+
+.generate-password:hover {
+  border: 0.125rem solid var(--color-neon-green);
+  background-color: var(--color-very-dark-grey);
+  color: var(--color-neon-green);
+  fill: var(--color-neon-green);
+}
+
+.generate-password > svg {
+  inline-size: auto;
+  block-size: 0.75rem;
+}
+
+.generate-password > svg > path {
+  fill: inherit;
+}

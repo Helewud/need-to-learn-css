@@ -51,6 +51,10 @@ const projectList = [
     url: "./tip-calculator-app/index.html",
     title: "Tip Calculator App",
   },
+  {
+    url: "./password-generator-app/index.html",
+    title: "Password Generator App",
+  },
 ];
 
 class ProjectList {
