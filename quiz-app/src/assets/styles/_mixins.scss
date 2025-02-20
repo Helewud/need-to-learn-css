@@ -1,0 +1,68 @@
+@use "variables" as v;
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Rubik Italic";
+  src: url("../fonts/Rubik/Rubik-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-preset-display {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-display;
+  font-weight: 500;
+  line-height: v.$line-height-base;
+}
+
+@mixin text-preset-header-lg-bold {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-header-l;
+  font-weight: 500;
+  line-height: v.$line-height-base;
+}
+
+@mixin text-preset-header-lg-regular {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-header-l;
+  font-weight: 400;
+  line-height: v.$line-height-base;
+}
+
+@mixin text-preset-header-md-medium {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-header-m;
+  font-weight: 500;
+  line-height: v.$line-height-base;
+}
+
+@mixin text-preset-header-sm-medium {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-header-s;
+  font-weight: 500;
+  line-height: v.$line-height-base;
+}
+
+@mixin text-preset-body-md {
+  font-family: "Rubik", serif;
+  font-size: v.$font-size-body;
+  font-weight: 400;
+  line-height: v.$line-height-base * 1.5;
+}
+
+@mixin text-preset-display {
+  font-family: "Rubik Italic", serif;
+  font-size: v.$font-size-body;
+  font-weight: 500;
+  line-height: v.$line-height-base * 1.5;
+}

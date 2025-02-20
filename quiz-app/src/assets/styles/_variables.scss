@@ -1,0 +1,34 @@
+$color-dark-navy: #313e51;
+$color-grey-navy: #626c7f;
+$color-navy: #3b4d66;
+$color-light-bluish: #abc1e1;
+$color-light-grey: #f4f6fa;
+$color-green: #26d782;
+$color-purple: #a729f5;
+$color-red: #ee5454;
+$color-pure-white: #ffffff;
+
+$progressPercent: 0%;
+
+$size-1300: 6.5rem; /* 104px */
+$size-900: 4.5rem; /* 72px */
+$size-800: 4rem; /* 64px */
+$size-600: 3rem; /* 48px */
+$size-500: 2.5rem; /* 40px */
+$size-400: 2rem; /* 32px */
+$size-300: 1.5rem; /* 24px */
+$size-200: 1rem; /* 16px */
+$size-100: 0.5rem; /* 8px */
+$size-50: 0.25rem; /* 4px */
+
+$line-height-base: 100%;
+
+$screen-width-sm: 23.4375rem;
+$screen-width-md: 28rem;
+$screen-max-lg: 90rem;
+
+$font-size-display: clamp(5rem, 3.5915rem + 6.0094vw, 9rem);
+$font-size-header-l: clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem);
+$font-size-header-m: clamp(1.25rem, 0.8979rem + 1.5023vw, 2.25rem);
+$font-size-header-s: clamp(1.125rem, 0.9049rem + 0.939vw, 1.75rem);
+$font-size-body: clamp(0.875rem, 0.743rem + 0.5634vw, 1.25rem);
