@@ -1,0 +1,34 @@
+@use "@/assets/styles/_variables" as v;
+@use "@/assets/styles/_mixins" as m;
+
+%progress-track {
+  inline-size: clamp(20.4375rem, 17.4005rem + 12.9577vw, 29.0625rem);
+  block-size: v.$size-200;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: v.$size-50;
+  border: 0;
+  border-radius: 999px;
+  z-index: -1;
+}
+
+.progress-track-dark {
+  @extend %progress-track;
+
+  background-color: v.$color-navy;
+}
+
+.progress-track-light {
+  @extend %progress-track;
+
+  background-color: v.$color-pure-white;
+}
+
+.progress-bar {
+  inline-size: 80%;
+  block-size: v.$size-100;
+  border: 0;
+  border-radius: 999px;
+  background-color: v.$color-purple;
+}

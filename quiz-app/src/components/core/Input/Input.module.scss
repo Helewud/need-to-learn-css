@@ -1,0 +1,20 @@
+@use "sass:color";
+@use "@/assets/styles/variables" as v;
+@use "@/assets/styles/mixins" as m;
+
+button {
+  @include m.flex-center;
+  @include m.text-preset-header-sm-medium;
+
+  inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
+  block-size: 5.75rem;
+  padding: v.$size-400 v.$size-400;
+  border-radius: v.$size-300;
+  border: 0;
+  color: v.$color-pure-white;
+  background-color: v.$color-purple;
+
+  &:hover {
+    background-color: color.mix(v.$color-purple, v.$color-pure-white, $weight: 75%, $method: rgb);
+  }
+}

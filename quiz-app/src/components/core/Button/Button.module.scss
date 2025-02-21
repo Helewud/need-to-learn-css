@@ -1,0 +1,56 @@
+@use "sass:color";
+@use "@/assets/styles/_variables" as v;
+@use "@/assets/styles/_mixins" as m;
+
+.submit-button {
+  @include m.flex-center;
+  @include m.text-preset-header-sm-medium;
+
+  inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
+  block-size: 5.75rem;
+  padding: v.$size-400;
+  border-radius: v.$size-300;
+  border: 0;
+  color: v.$color-pure-white;
+  background-color: v.$color-purple;
+
+  &:hover {
+    background-color: color.mix(v.$color-purple, v.$color-pure-white, $weight: 50%, $method: rgb);
+  }
+}
+
+%option-button {
+  inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
+  block-size: clamp(4rem, 3.3838rem + 2.6291vw, 5.75rem);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: calc(v.$size-100 + v.$size-50);
+  gap: v.$size-200;
+  border: 0;
+  border-radius: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
+
+  svg {
+    block-size: 100%;
+  }
+
+  p {
+    @include m.text-preset-header-sm-medium;
+
+    text-align: center;
+  }
+}
+
+.option-button-dark {
+  @extend %option-button;
+
+  color: v.$color-pure-white;
+  background-color: v.$color-navy;
+}
+
+.option-button-light {
+  @extend %option-button;
+
+  color: v.$color-dark-navy;
+  background-color: v.$color-pure-white;
+}

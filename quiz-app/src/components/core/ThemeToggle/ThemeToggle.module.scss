@@ -1,0 +1,54 @@
+@use "@/assets/styles/_variables" as v;
+@use "@/assets/styles/_mixins" as m;
+
+%toggle-group {
+  @include m.flex-center;
+
+  gap: v.$size-100;
+  border-radius: v.$size-300;
+  border: 0;
+  background-color: transparent;
+
+  svg {
+    inline-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+    block-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+  }
+}
+
+.switch {
+  inline-size: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+  block-size: clamp(1.25rem, 1.0739rem + 0.7512vw, 1.75rem);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: v.$size-50;
+  background-color: v.$color-purple;
+  border: 0;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.switch-knob {
+  inline-size: clamp(0.75rem, 0.5739rem + 0.7512vw, 1.25rem);
+  block-size: clamp(0.75rem, 0.5739rem + 0.7512vw, 1.25rem);
+  background-color: v.$color-pure-white;
+  border: 0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.light-mode {
+  @extend %toggle-group;
+
+  .switch {
+    justify-content: left;
+  }
+}
+
+.dark-mode {
+  @extend %toggle-group;
+
+  .switch {
+    justify-content: right;
+  }
+}

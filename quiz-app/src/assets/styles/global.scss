@@ -1,0 +1,16 @@
+@use "./variables" as v;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 100dvh;
+  min-block-size: -webkit-fill-available;
+  background-color: v.$color-dark-navy;
+  overflow: hidden;
+}

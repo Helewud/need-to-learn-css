@@ -19,50 +19,50 @@
 }
 
 @mixin text-preset-display {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-display;
   font-weight: 500;
   line-height: v.$line-height-base;
 }
 
 @mixin text-preset-header-lg-bold {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-header-l;
   font-weight: 500;
   line-height: v.$line-height-base;
 }
 
 @mixin text-preset-header-lg-regular {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-header-l;
   font-weight: 400;
   line-height: v.$line-height-base;
 }
 
 @mixin text-preset-header-md-medium {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-header-m;
   font-weight: 500;
   line-height: v.$line-height-base;
 }
 
 @mixin text-preset-header-sm-medium {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-header-s;
   font-weight: 500;
   line-height: v.$line-height-base;
 }
 
 @mixin text-preset-body-md {
-  font-family: "Rubik", serif;
+  font-family: "Rubik", sans-serif;
   font-size: v.$font-size-body;
   font-weight: 400;
   line-height: v.$line-height-base * 1.5;
 }
 
-@mixin text-preset-display {
-  font-family: "Rubik Italic", serif;
+@mixin text-preset-body-sm {
+  font-family: "Rubik Italic", sans-serif;
   font-size: v.$font-size-body;
-  font-weight: 500;
+  font-weight: 300;
   line-height: v.$line-height-base * 1.5;
 }
