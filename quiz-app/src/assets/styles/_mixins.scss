@@ -66,3 +66,49 @@
   font-weight: 300;
   line-height: v.$line-height-base * 1.5;
 }
+
+@mixin boxed-icon {
+  inline-size: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem);
+  block-size: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.375rem;
+}
+
+@mixin dark-theme {
+  color: v.$color-pure-white;
+  background-color: v.$color-dark-navy;
+}
+
+@mixin dark-light {
+  color: v.$color-dark-navy;
+  background-color: v.$color-pure-white;
+}
+
+%select-button {
+  inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
+  block-size: clamp(4rem, 3.3838rem + 2.6291vw, 5.75rem);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: v.$size-200;
+  padding: calc(v.$size-100 + v.$size-50);
+  border: 0;
+  border-radius: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
+  cursor: pointer;
+}
+
+@mixin select-button-dark {
+  @extend %select-button;
+
+  color: v.$color-pure-white;
+  background-color: v.$color-navy;
+}
+
+@mixin select-button-light {
+  @extend %select-button;
+
+  color: v.$color-dark-navy;
+  background-color: v.$color-pure-white;
+}

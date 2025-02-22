@@ -12,5 +12,11 @@ body {
   min-block-size: 100dvh;
   min-block-size: -webkit-fill-available;
   background-color: v.$color-dark-navy;
-  overflow: hidden;
+  // overflow: hidden;
+}
+
+svg {
+  inline-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
+  block-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
+  background-color: inherit;
 }

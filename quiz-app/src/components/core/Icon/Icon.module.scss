@@ -1,94 +1,37 @@
 @use "@/assets/styles/variables" as v;
 @use "@/assets/styles/mixins" as m;
 
-%boxed-icon {
-  inline-size: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem);
-  block-size: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.375rem;
-
-  svg {
-    inline-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
-    block-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
-  }
-
-  p {
-    @include m.text-preset-header-sm-medium;
-
-    color: v.$color-grey-navy;
-  }
-}
-
 .boxed-icon-bg-red {
-  @extend %boxed-icon;
+  @include m.boxed-icon;
 
   background-color: #fff1e9;
 }
 
 .boxed-icon-bg-green {
-  @extend %boxed-icon;
+  @include m.boxed-icon;
 
   background-color: #e0fdef;
 }
 
 .boxed-icon-bg-purple {
-  @extend %boxed-icon;
+  @include m.boxed-icon;
 
   background-color: #f6e7ff;
 }
 
 .boxed-icon-bg-blue {
-  @extend %boxed-icon;
+  @include m.boxed-icon;
 
   background-color: #ebf0ff;
 }
 
-.boxed-icon-bg-grey {
-  @extend %boxed-icon;
-
-  background-color: v.$color-light-grey;
-
-  &:hover {
-    background-color: #f6e7ff;
-
-    p {
-      color: v.$color-purple;
-    }
-  }
-
-  &:active {
-    background-color: v.$color-purple;
-
-    p {
-      color: v.$color-pure-white;
-    }
-  }
-}
-
-%icon-name-group {
+.icon-name-group {
   @include m.flex-center;
 
+  inline-size: 100%;
   gap: v.$size-200;
 
   h2 {
     @include m.text-preset-header-sm-medium;
-  }
-}
-
-.icon-name-group-dark {
-  @extend %icon-name-group;
-
-  h2 {
-    color: v.$color-pure-white;
-  }
-}
-
-.icon-name-group-light {
-  @extend %icon-name-group;
-
-  h2 {
-    color: v.$color-dark-navy;
   }
 }
