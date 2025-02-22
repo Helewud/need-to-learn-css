@@ -32,3 +32,92 @@
   border-radius: 999px;
   background-color: v.$color-purple;
 }
+
+.option-icon {
+  @include m.boxed-icon;
+
+  background-color: v.$color-light-grey;
+
+  p {
+    @include m.text-preset-header-sm-medium;
+
+    color: v.$color-grey-navy;
+    background-color: inherit;
+  }
+}
+
+%select-button {
+  .text-area {
+    @include m.text-preset-header-sm-medium;
+
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      inline-size: 22ch;
+      text-align: left;
+    }
+  }
+
+  &:hover {
+    .option-icon {
+      background-color: #f6e7ff;
+
+      p {
+        color: v.$color-purple;
+      }
+    }
+  }
+
+  &:active {
+    border: 0.1875rem solid v.$color-purple;
+
+    .option-icon {
+      background-color: v.$color-purple;
+
+      p {
+        color: v.$color-pure-white;
+      }
+    }
+  }
+}
+
+.select-button-dark {
+  @include m.select-button-dark;
+
+  @extend %select-button;
+}
+
+.select-button-light {
+  @include m.select-button-light;
+
+  @extend %select-button;
+}
+
+.correct {
+  pointer-events: none;
+  border: 0.1875rem solid v.$color-green;
+
+  .option-icon {
+    background-color: v.$color-green;
+
+    p {
+      color: v.$color-pure-white;
+    }
+  }
+}
+
+.incorrect {
+  pointer-events: none;
+  border: 0.1875rem solid v.$color-red;
+
+  .option-icon {
+    background-color: v.$color-red;
+
+    p {
+      color: v.$color-pure-white;
+    }
+  }
+}

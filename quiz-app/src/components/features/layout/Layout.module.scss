@@ -1,7 +1,7 @@
 @use "@/assets/styles/_variables" as v;
 @use "@/assets/styles/_mixins" as m;
 
-.layout {
+%layout {
   inline-size: 100%;
   min-block-size: 100dvh;
   display: flex;
@@ -26,5 +26,36 @@
   }
 
   .page-content {
+  }
+}
+
+.layout-dark {
+  @include m.dark-theme;
+  @extend %layout;
+}
+
+.layout-light {
+  @include m.dark-light;
+  @extend %layout;
+}
+
+.nav-bar {
+  @include m.flex-center;
+
+  inline-size: 100%;
+  block-size: auto;
+  justify-content: space-between;
+  padding: v.$size-200 v.$size-300;
+
+  .left-side {
+    display: flex;
+    justify-content: start;
+    margin-right: auto;
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: end;
+    margin-left: auto;
   }
 }

@@ -1,0 +1,20 @@
+@use "@/assets/styles/_variables" as v;
+@use "@/assets/styles/_mixins" as m;
+
+.select-button-dark {
+  @include m.select-button-dark;
+  @include m.text-preset-header-sm-medium;
+
+  &:hover {
+    border: 0.1875rem solid v.$color-pure-white;
+  }
+}
+
+.select-button-light {
+  @include m.select-button-light;
+  @include m.text-preset-header-sm-medium;
+
+  &:hover {
+    border: 0.1875rem solid v.$color-dark-navy;
+  }
+}

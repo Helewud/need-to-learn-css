@@ -1,1 +1,2 @@
-export { default as ProgressBar } from "./ProgressBar";
+export { QuizProgressBar } from "./QuizProgressBar";
+export { QuizSelectButton } from "./QuizSelectButton";
