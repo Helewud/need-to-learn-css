@@ -7,9 +7,9 @@
   @include m.text-preset-header-sm-medium;
 
   inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
-  block-size: 5.75rem;
+  block-size: clamp(3.5rem, 2.7077rem + 3.3803vw, 5.75rem);
   padding: v.$size-400;
-  border-radius: v.$size-300;
+  border-radius: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
   border: 0;
   color: v.$color-pure-white;
   background-color: v.$color-purple;

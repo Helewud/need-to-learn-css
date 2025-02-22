@@ -1,0 +1,44 @@
+@use "@/assets/styles/variables" as v;
+@use "@/assets/styles/mixins" as m;
+
+.content {
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$size-500;
+  padding: v.$size-400 v.$size-300;
+  padding-bottom: 0;
+
+  .question-content {
+    inline-size: 100%;
+    // @include m.flex-center;
+
+    display: flex;
+    flex-direction: column;
+    gap: v.$size-300;
+
+    .text-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: calc(v.$size-100 + v.$size-50);
+
+      h2 {
+        @include m.text-preset-header-md-medium;
+      }
+
+      p {
+        @include m.text-preset-body-sm;
+      }
+    }
+  }
+
+  .question-options {
+    @include m.flex-center;
+
+    flex-direction: column;
+    gap: calc(v.$size-100 + v.$size-50);
+  }
+}

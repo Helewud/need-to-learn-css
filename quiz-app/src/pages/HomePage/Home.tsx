@@ -1,16 +1,16 @@
-import { OptionButton } from "../../components/core/Button";
 import Layout from "../../components/features/layout/Layout";
 import {
-  HtmlIcon,
-  CssIcon,
-  JsIcon,
   AccessibilityIcon,
+  CssIcon,
+  HtmlIcon,
+  JsIcon,
 } from "../../components/core/Icon";
 import styles from "./Home.module.scss";
+import HomeSelectButton from "../../components/features/home/HomeSelectButton";
 
-const Home = () => {
+export const Home = () => {
   return (
-    <Layout showIcon={true}>
+    <Layout>
       <div className={styles["home-content"]}>
         <section className={styles["header"]}>
           <h2>
@@ -21,25 +21,23 @@ const Home = () => {
         </section>
 
         <div className={styles["quiz-options"]}>
-          <OptionButton text="HTML">
+          <HomeSelectButton text="HTML">
             <HtmlIcon />
-          </OptionButton>
+          </HomeSelectButton>
 
-          <OptionButton text="CSS">
+          <HomeSelectButton text="CSS">
             <CssIcon />
-          </OptionButton>
+          </HomeSelectButton>
 
-          <OptionButton text="JavaScript">
+          <HomeSelectButton text="JavaScript">
             <JsIcon />
-          </OptionButton>
+          </HomeSelectButton>
 
-          <OptionButton text="Accessibility">
+          <HomeSelectButton text="Accessibility">
             <AccessibilityIcon />
-          </OptionButton>
+          </HomeSelectButton>
         </div>
       </div>
     </Layout>
   );
 };
-
-export default Home;

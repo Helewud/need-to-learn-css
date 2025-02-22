@@ -2,7 +2,8 @@
 @use "@/assets/styles/_mixins" as m;
 
 %progress-track {
-  inline-size: clamp(20.4375rem, 17.4005rem + 12.9577vw, 29.0625rem);
+  // inline-size: clamp(20.4375rem, 17.4005rem + 12.9577vw, 29.0625rem);
+  inline-size: 100%;
   block-size: v.$size-200;
   display: flex;
   align-items: center;
@@ -10,7 +11,7 @@
   padding: v.$size-50;
   border: 0;
   border-radius: 999px;
-  z-index: -1;
+  z-index: 9999;
 }
 
 .progress-track-dark {
