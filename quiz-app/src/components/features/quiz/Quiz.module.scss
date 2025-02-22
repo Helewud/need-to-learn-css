@@ -48,6 +48,8 @@
 }
 
 %select-button {
+  inline-size: 100%;
+
   .text-area {
     @include m.text-preset-header-sm-medium;
 

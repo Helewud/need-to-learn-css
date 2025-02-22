@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children, category }) => {
         <NavBar>{category}</NavBar>
       </div>
 
-      <div className={styles["page-content"]}>{children}</div>
+      {children}
     </div>
   );
 };

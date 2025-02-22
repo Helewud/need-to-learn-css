@@ -11,7 +11,7 @@ import HomeSelectButton from "../../components/features/home/HomeSelectButton";
 export const Home = () => {
   return (
     <Layout>
-      <div className={styles["home-content"]}>
+      <div className={styles["content"]}>
         <section className={styles["header"]}>
           <h2>
             <span className={styles["minor-header"]}>Welcome to the</span>

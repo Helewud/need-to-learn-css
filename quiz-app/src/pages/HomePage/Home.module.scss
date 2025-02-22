@@ -1,12 +1,13 @@
 @use "@/assets/styles/variables" as v;
 @use "@/assets/styles/mixins" as m;
 
-.home-content {
+.content {
   inline-size: 100%;
   block-size: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   gap: v.$size-500;
   padding: v.$size-400 v.$size-300;
   padding-bottom: 0;

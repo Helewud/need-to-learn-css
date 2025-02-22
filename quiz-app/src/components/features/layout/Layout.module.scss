@@ -18,24 +18,21 @@
   }
 
   .page-nav {
-    position: absolute;
+    position: relative;
     inline-size: 100%;
     top: 0;
     left: 0;
     z-index: 9999;
   }
-
-  .page-content {
-  }
 }
 
 .layout-dark {
-  @include m.dark-theme;
+  @include m.theme-dark;
   @extend %layout;
 }
 
 .layout-light {
-  @include m.dark-light;
+  @include m.theme-light;
   @extend %layout;
 }
 

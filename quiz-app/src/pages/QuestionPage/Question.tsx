@@ -30,9 +30,9 @@ export const Question = () => {
 
         <div className={styles["question-options"]}>
           <QuizSelectButton option="A" text="Call me now now now" />
-          <QuizSelectButton option="A" text="Call me now now now" />
-          <QuizSelectButton option="A" text="Call me now now now" />
-          <QuizSelectButton option="A" text="Call me now now now" />
+          <QuizSelectButton option="B" text="Call me now now now" />
+          <QuizSelectButton option="C" text="Call me now now now" />
+          <QuizSelectButton option="D" text="Call me now now now" />
           <Button text="Submit Answer" />
         </div>
       </div>

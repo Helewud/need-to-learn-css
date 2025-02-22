@@ -76,12 +76,12 @@
   border-radius: 0.375rem;
 }
 
-@mixin dark-theme {
+@mixin theme-dark {
   color: v.$color-pure-white;
   background-color: v.$color-dark-navy;
 }
 
-@mixin dark-light {
+@mixin theme-light {
   color: v.$color-dark-navy;
   background-color: v.$color-pure-white;
 }

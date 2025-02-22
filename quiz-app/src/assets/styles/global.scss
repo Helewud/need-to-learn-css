@@ -1,4 +1,5 @@
 @use "./variables" as v;
+@use "./mixins" as m;
 
 * {
   box-sizing: border-box;
@@ -7,6 +8,7 @@
 }
 
 body {
+  @include m.flex-center;
   inline-size: 100%;
   block-size: 100%;
   min-block-size: 100dvh;
@@ -15,8 +17,18 @@ body {
   // overflow: hidden;
 }
 
+main {
+  inline-size: clamp(23.4375rem, 6.228rem + 73.4272vw, 72.3125rem);
+}
+
 svg {
   inline-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
   block-size: clamp(1.8125rem, 1.5704rem + 1.0329vw, 2.5rem);
   background-color: inherit;
 }
+
+// @media (min-width: 48rem) {
+//   main {
+//     inline-size: 40rem;
+//   }
+// }
