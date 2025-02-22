@@ -13,10 +13,13 @@
 
   .text-area {
     @include m.flex-center;
-    @include m.text-preset-display;
 
     flex-direction: column;
     gap: v.$size-200;
+
+    h2 {
+      @include m.text-preset-display;
+    }
 
     p {
       @include m.text-preset-body-md;

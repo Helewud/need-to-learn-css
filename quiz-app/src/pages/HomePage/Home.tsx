@@ -20,7 +20,7 @@ export const Home = () => {
           <p>Pick a subject to get started.</p>
         </section>
 
-        <div className={styles["quiz-options"]}>
+        <div className={styles["category-options"]}>
           <HomeSelectButton text="HTML">
             <HtmlIcon />
           </HomeSelectButton>
