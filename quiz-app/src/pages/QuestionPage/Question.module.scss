@@ -3,18 +3,18 @@
 
 .content {
   inline-size: 100%;
+  min-inline-size: 16.25rem;
   block-size: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: v.$size-500;
-  padding: v.$size-400 v.$size-300;
+  padding: v.$size-600 0;
   padding-bottom: 0;
 
   .question-content {
     inline-size: 100%;
-    // @include m.flex-center;
-
+    block-size: 100%;
     display: flex;
     flex-direction: column;
     gap: v.$size-300;
@@ -22,7 +22,7 @@
     .text-area {
       display: flex;
       flex-direction: column;
-      justify-content: left;
+      justify-content: start;
       gap: calc(v.$size-100 + v.$size-50);
 
       h2 {
@@ -39,11 +39,35 @@
     @include m.flex-center;
 
     inline-size: 100%;
+    block-size: 100%;
     flex-direction: column;
-    gap: calc(v.$size-100 + v.$size-50);
+    gap: clamp(calc(v.$size-100 + v.$size-50), 1%, v.$size-300);
 
     button {
       inline-size: 100%;
+    }
+  }
+}
+
+@media (min-width: 54rem) {
+  .content {
+    block-size: 37.25rem;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+
+    .question-content {
+      justify-content: stretch;
+      flex: 1;
+
+      .text-area {
+        max-inline-size: 70ch;
+      }
+    }
+
+    .question-options {
+      justify-content: stretch;
+      flex: 1;
     }
   }
 }

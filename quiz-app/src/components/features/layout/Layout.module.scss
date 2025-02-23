@@ -6,8 +6,9 @@
   min-block-size: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  // justify-content: stretch;
+  // align-items: center;
 
   .circle-backdrop {
     position: absolute;
@@ -42,7 +43,7 @@
   inline-size: 100%;
   block-size: auto;
   justify-content: space-between;
-  padding: v.$size-200 v.$size-300;
+  // padding: v.$size-200 0;
 
   .left-side {
     display: flex;

@@ -17,16 +17,19 @@ export const Question = () => {
     <Layout category={cateogory}>
       <div className={styles["content"]}>
         <section className={styles["question-content"]}>
+          <div className={styles["p-bar"]}>
+            <QuizProgressBar />
+          </div>
+
           <div className={styles["text-area"]}>
             <p>Question 6 of 10</p>
             <h2>
               Which of these color contrast ratios defines the minimum WCAG 2.1
-              Level AA requirement for normal text?
+              Level AA requirement for normal text? Which of these color
+              contrast ratios defines the minimum WCAG 2.1 Level AA requirement
             </h2>
           </div>
         </section>
-
-        <QuizProgressBar />
 
         <div className={styles["question-options"]}>
           <QuizSelectButton option="A" text="Call me now now now" />

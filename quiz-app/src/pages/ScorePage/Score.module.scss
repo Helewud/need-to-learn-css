@@ -7,10 +7,11 @@
   display: flex;
   flex-direction: column;
   gap: v.$size-500;
-  padding: v.$size-400 v.$size-300;
-  padding-bottom: 0;
+  padding: v.$size-400 0;
+  padding-top: clamp(v.$size-600, 10%, 3.375rem);
 
   .header {
+    inline-size: 100%;
     display: flex;
     flex-direction: column;
     gap: v.$size-100;
@@ -38,5 +39,12 @@
     inline-size: 100%;
     flex-direction: column;
     gap: calc(v.$size-100 + v.$size-50);
+  }
+}
+
+@media (min-width: 54rem) {
+  .content {
+    flex-direction: row;
+    padding-top: 6.25rem;
   }
 }
