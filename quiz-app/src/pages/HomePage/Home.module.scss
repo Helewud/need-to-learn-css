@@ -40,7 +40,7 @@
 
     inline-size: 100%;
     flex-direction: column;
-    gap: minmax(calc(v.$size-100 + v.$size-50), v.$size-300);
+    gap: clamp(calc(v.$size-100 + v.$size-50), 10%, v.$size-300);
   }
 }
 
