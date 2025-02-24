@@ -76,16 +76,6 @@
   border-radius: 0.375rem;
 }
 
-@mixin theme-dark {
-  color: v.$color-pure-white;
-  background-color: v.$color-dark-navy;
-}
-
-@mixin theme-light {
-  color: v.$color-dark-navy;
-  background-color: v.$color-pure-white;
-}
-
 %select-button {
   inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
   block-size: clamp(4rem, 3.3838rem + 2.6291vw, 5.75rem);
