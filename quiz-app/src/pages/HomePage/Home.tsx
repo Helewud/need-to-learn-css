@@ -7,8 +7,9 @@ import {
 } from "../../components/core/Icon";
 import HomeSelectButton from "../../components/features/home/HomeSelectButton";
 import Layout from "../../components/features/layout/Layout";
+import { QuizCategoryProvider } from "../../context/QuizContext";
 import { fetchQuiz } from "../../services/api";
-import { Quiz } from "../../types";
+import { Quiz, QuizCategory } from "../../types";
 import styles from "./Home.module.scss";
 
 export const Home = () => {
@@ -16,6 +17,8 @@ export const Home = () => {
     const saved = window.localStorage.getItem("quiz");
     return saved ? JSON.parse(saved) : null;
   });
+
+  const [quizCategory, setQuizCategory] = useState("");
 
   useEffect(() => {
     (async function () {
@@ -44,30 +47,36 @@ export const Home = () => {
   }
 
   return (
-    <Layout>
-      <div className={styles["content"]}>
-        <section className={styles["header"]}>
-          <h2>
-            <span className={styles["minor-header"]}>Welcome to the</span>
-            <span className={styles["major-header"]}>Frontend Quiz!</span>
-          </h2>
-          <p>Pick a subject to get started.</p>
-        </section>
+    <QuizCategoryProvider
+      value={{ category: quizCategory, setCategory: setQuizCategory }}
+    >
+      <Layout>
+        <div className={styles["content"]}>
+          <section className={styles["header"]}>
+            <h2>
+              <span className={styles["minor-header"]}>Welcome to the</span>
+              <span className={styles["major-header"]}>Frontend Quiz!</span>
+            </h2>
+            <p>Pick a subject to get started.</p>
+          </section>
 
-        <div className={styles["category-options"]}>
-          {quizCategories.map((category, index) => {
-            const icon = getQuizCategoryIconComponent(category as never);
-            return (
-              <HomeSelectButton key={index} text={category} children={icon} />
-            );
-          })}
+          <div className={styles["category-options"]}>
+            {quizCategories.map((category, index) => {
+              const icon = getQuizCategoryIconComponent(category as never);
+              return (
+                <HomeSelectButton
+                  key={index}
+                  category={category}
+                  children={icon}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </QuizCategoryProvider>
   );
 };
-
-type QuizCategory = "HTML" | "CSS" | "JavaScript" | "Accessibility";
 
 const getQuizCategoryIconComponent = (category: QuizCategory) => {
   switch (category) {

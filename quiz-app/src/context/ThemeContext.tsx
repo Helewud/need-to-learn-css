@@ -1,21 +1,35 @@
+/* eslint-disable react-refresh/only-export-components */
 import { ReactElement, createContext } from "react";
-import { ThemeMode } from "../types/theme.types";
+import { ThemeMode } from "../types";
 
-export const ThemeContext = createContext<{
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+interface ThemeContextProps {
   theme: ThemeMode;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-  setTheme: Function;
-}>({
+  setTheme: React.Dispatch<ThemeMode>;
+}
+
+interface ThemeProviderProps {
+  children: ReactElement;
+  value: ThemeContextProps;
+}
+
+export const ThemeContext = createContext<ThemeContextProps>({
   theme: "dark",
-  setTheme: () => {},
+  setTheme: () => null,
 });
 
-export const ThemeProvider = ({
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
   value: { theme, setTheme },
-}: {
-  children: ReactElement;
-  value: { theme: ThemeMode; setTheme: VoidFunction };
 }) => {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

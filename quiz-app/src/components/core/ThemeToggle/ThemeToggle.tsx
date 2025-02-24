@@ -1,4 +1,4 @@
-import { MouseEventHandler, useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import {
   MoonDarkIcon,
@@ -8,27 +8,31 @@ import {
 } from "../Icon/Icon";
 import styles from "./ThemeToggle.module.scss";
 
-const Switch = ({ clickAction }: { clickAction: MouseEventHandler }) => {
-  return (
-    <div className={styles["switch"]} onClick={clickAction}>
-      <div className={styles["switch-knob"]}></div>
-    </div>
-  );
-};
-
+/**
+ * ThemeToggle component renders a button that toggles between light and dark themes.
+ * It uses the ThemeContext to read and update the current theme.
+ */
 const ThemeToggle = () => {
-  const toggleTheme = () => {
-    if (theme === "light") setTheme("dark");
-    if (theme === "dark") setTheme("light");
-  };
-
   const { theme, setTheme } = useContext(ThemeContext);
-  const togglestyle = styles[`${theme}-mode`];
+
+  const toggledStyle = styles[`${theme}-mode`];
 
   return (
-    <button className={togglestyle}>
+    <button className={toggledStyle}>
       {theme === "light" ? <SunDarkIcon /> : <SunLightIcon />}
-      <Switch clickAction={toggleTheme} />
+
+      {/* The switch container acts as a clickable area to toggle the theme. */}
+      <div
+        className={styles["switch"]}
+        onClick={() => {
+          if (theme === "light") setTheme("dark");
+          if (theme === "dark") setTheme("light");
+        }}
+      >
+        {/* Visual representation of the switch knob */}
+        <div className={styles["switch-knob"]}></div>
+      </div>
+
       {theme === "light" ? <MoonDarkIcon /> : <MoonLightIcon />}
     </button>
   );

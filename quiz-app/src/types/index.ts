@@ -1,4 +1,4 @@
-type QuizQuestion = {
+export type QuizQuestion = {
   question: string;
   options: string[];
   answer: string;
@@ -15,3 +15,5 @@ export type QuizData = {
 };
 
 export type ThemeMode = "light" | "dark";
+
+export type QuizCategory = "HTML" | "CSS" | "JavaScript" | "Accessibility";
