@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Score.module.scss";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 interface ScoreCardProps {
   children: React.ReactNode;
@@ -12,8 +13,11 @@ export const ScoreCard: React.FC<ScoreCardProps> = ({
   correctCount,
   totalCount,
 }) => {
+  const { theme } = useContext(ThemeContext);
+  const cardStyle = styles[`card-${theme}`];
+
   return (
-    <div className={styles["card-dark"]}>
+    <div className={cardStyle}>
       {children}
       <section className={styles["text-area"]}>
         <h2>{correctCount}</h2>

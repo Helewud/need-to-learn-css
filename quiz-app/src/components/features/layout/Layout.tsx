@@ -1,6 +1,7 @@
-import { BackgroundPatternSmDark } from "./LayoutBgPattern";
 import NavBar from "./LayoutNav";
 import styles from "./Layout.module.scss";
+import { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 interface LayoutProps {
   category?: React.ReactElement;
@@ -8,10 +9,11 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, category }) => {
-  return (
-    <div className={styles["layout-dark"]}>
-      <BackgroundPatternSmDark className={styles["circle-backdrop"]} />
+  const { theme } = useContext(ThemeContext);
+  const layoutStyle = styles[`layout-${theme}`];
 
+  return (
+    <div className={layoutStyle}>
       <div className={styles["page-nav"]}>
         <NavBar>{category}</NavBar>
       </div>

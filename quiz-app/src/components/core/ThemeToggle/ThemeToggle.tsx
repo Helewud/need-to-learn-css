@@ -1,39 +1,37 @@
-import styles from "./ThemeToggle.module.scss";
+import { MouseEventHandler, useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
 import {
-  SunDarkIcon,
   MoonDarkIcon,
   MoonLightIcon,
+  SunDarkIcon,
   SunLightIcon,
 } from "../Icon/Icon";
+import styles from "./ThemeToggle.module.scss";
 
-interface ThemeToggleProps {
-  mode: "light" | "dark";
-}
+const Switch = ({ clickAction }: { clickAction: MouseEventHandler }) => {
+  return (
+    <div className={styles["switch"]} onClick={clickAction}>
+      <div className={styles["switch-knob"]}></div>
+    </div>
+  );
+};
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ mode }) => {
-  if (mode === "light") {
-    return (
-      <button className={styles["light-mode"]}>
-        <SunDarkIcon />
-        <div className={styles["switch"]}>
-          <div className={styles["switch-knob"]}></div>
-        </div>
-        <MoonDarkIcon />
-      </button>
-    );
-  }
+const ThemeToggle = () => {
+  const toggleTheme = () => {
+    if (theme === "light") setTheme("dark");
+    if (theme === "dark") setTheme("light");
+  };
 
-  if (mode === "dark") {
-    return (
-      <button className={styles["dark-mode"]}>
-        <SunLightIcon />
-        <div className={styles["switch"]}>
-          <div className={styles["switch-knob"]}></div>
-        </div>
-        <MoonLightIcon />
-      </button>
-    );
-  }
+  const { theme, setTheme } = useContext(ThemeContext);
+  const togglestyle = styles[`${theme}-mode`];
+
+  return (
+    <button className={togglestyle}>
+      {theme === "light" ? <SunDarkIcon /> : <SunLightIcon />}
+      <Switch clickAction={toggleTheme} />
+      {theme === "light" ? <MoonDarkIcon /> : <MoonLightIcon />}
+    </button>
+  );
 };
 
 export default ThemeToggle;

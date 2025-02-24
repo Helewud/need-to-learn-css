@@ -11,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = ({ children }) => {
       <section className={styles["left-side"]}>{children}</section>
 
       <section className={styles["right-side"]}>
-        <ThemeToggle mode="dark" />
+        <ThemeToggle />
       </section>
     </div>
   );

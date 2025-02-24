@@ -11,6 +11,7 @@
   gap: v.$size-500;
   padding: v.$size-600 0;
   padding-bottom: 0;
+  overflow: hidden;
 
   .question-content {
     inline-size: 100%;
@@ -57,7 +58,7 @@
     justify-content: start;
 
     .question-content {
-      justify-content: stretch;
+      // justify-content: stretch;
       flex: 1;
 
       .text-area {

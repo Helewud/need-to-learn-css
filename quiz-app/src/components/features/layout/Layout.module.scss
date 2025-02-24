@@ -1,53 +1,15 @@
 @use "@/assets/styles/_variables" as v;
 @use "@/assets/styles/_mixins" as m;
 
-%layout {
-  inline-size: 100%;
-  min-block-size: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  // justify-content: stretch;
-  // align-items: center;
-
-  .circle-backdrop {
-    position: absolute;
-    inline-size: 100%;
-    left: 0;
-    top: 0;
-    z-index: -1;
-  }
-
-  .page-nav {
-    position: relative;
-    inline-size: 100%;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-  }
-}
-
-.layout-dark {
-  @include m.theme-dark;
-  @extend %layout;
-}
-
-.layout-light {
-  @include m.theme-light;
-  @extend %layout;
-}
-
 .nav-bar {
   @include m.flex-center;
 
   inline-size: 100%;
   block-size: auto;
-  justify-content: space-between;
-  // padding: v.$size-200 0;
 
   .left-side {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-right: auto;
   }
 
@@ -55,5 +17,51 @@
     display: flex;
     justify-content: end;
     margin-left: auto;
+  }
+}
+
+%layout {
+  inline-size: 100%;
+  block-size: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: v.$size-200 v.$size-300;
+
+  justify-self: center;
+
+  .page-nav {
+    position: relative;
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 9999;
+  }
+}
+
+.layout-dark {
+  @extend %layout;
+
+  color: v.$color-pure-white;
+}
+
+.layout-light {
+  @extend %layout;
+
+  color: v.$color-dark-navy;
+}
+
+@media (min-width: 30rem) {
+  %layout {
+    align-items: stretch;
+    padding: v.$size-500 v.$size-800;
+  }
+}
+
+@media (min-width: 54rem) {
+  %layout {
+    inline-size: clamp(50rem, 16.25rem + 62.5vw, 72.5rem);
+    padding: 6rem 0;
   }
 }
