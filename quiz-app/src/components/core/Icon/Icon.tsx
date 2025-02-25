@@ -1,3 +1,9 @@
+import { QuizCategory } from "../../../types";
+import AccessibilityIcon from "./AccessibilityIcon";
+import CssIcon from "./CssIcon";
+import HtmlIcon from "./HtmlIcon";
+import JsIcon from "./JsIcon";
+
 export const CorrectIcon = () => {
   return (
     <svg
@@ -115,4 +121,17 @@ export const SunLightIcon = () => {
       />
     </svg>
   );
+};
+
+export const GetIconComponentByCategory = (category: QuizCategory) => {
+  switch (category) {
+    case "HTML":
+      return <HtmlIcon />;
+    case "CSS":
+      return <CssIcon />;
+    case "JavaScript":
+      return <JsIcon />;
+    case "Accessibility":
+      return <AccessibilityIcon />;
+  }
 };

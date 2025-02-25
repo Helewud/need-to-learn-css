@@ -12,15 +12,17 @@ const QuizOptionIcon = ({ letter }: { letter: string }) => {
 };
 
 interface QuizSelectButtonProps {
-  option: "A" | "B" | "C" | "D";
+  option: string;
   text: string;
   status?: "correct" | "incorrect";
+  clickAction: (e: React.MouseEvent) => void;
 }
 
 export const QuizSelectButton: React.FC<QuizSelectButtonProps> = ({
   option,
   text,
   status,
+  clickAction,
 }) => {
   const { theme } = useContext(ThemeContext);
   let buttonStyle = styles[`select-button-${theme}`];
@@ -38,7 +40,7 @@ export const QuizSelectButton: React.FC<QuizSelectButtonProps> = ({
   }
 
   return (
-    <button className={buttonStyle}>
+    <button className={buttonStyle} value={text} onClick={clickAction}>
       <QuizOptionIcon letter={option} />
       <div className={styles["text-area"]}>
         <p>{text}</p>

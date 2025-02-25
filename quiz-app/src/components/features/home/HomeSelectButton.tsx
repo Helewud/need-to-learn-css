@@ -1,31 +1,24 @@
 import { useContext } from "react";
-import styles from "./Home.module.scss";
 import { ThemeContext } from "../../../context/ThemeContext";
-import { QuizCategoryContext } from "../../../context/QuizContext";
+import styles from "./Home.module.scss";
 
 interface HomeSelectButtonProps {
   children: React.ReactElement;
   category: string;
+  clickAction: (e: React.MouseEvent) => void;
 }
 
 const HomeSelectButton: React.FC<HomeSelectButtonProps> = ({
   children,
   category,
+  clickAction,
 }) => {
   const { theme } = useContext(ThemeContext);
-  const { setCategory } = useContext(QuizCategoryContext);
 
   const buttonStyle = styles[`select-button-${theme}`];
 
   return (
-    <button
-      className={buttonStyle}
-      value={category}
-      onClick={(e) => {
-        const target = e.target as HTMLButtonElement;
-        setCategory(target.value);
-      }}
-    >
+    <button className={buttonStyle} value={category} onClick={clickAction}>
       {/* Catgegory icon */}
       {children}
 

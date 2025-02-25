@@ -27,7 +27,7 @@
 }
 
 .progress-bar {
-  inline-size: 80%;
+  inline-size: 0%;
   block-size: v.$size-100;
   border: 0;
   border-radius: 999px;
@@ -74,7 +74,8 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
     border: 0.1875rem solid v.$color-purple;
 
     .option-icon {
