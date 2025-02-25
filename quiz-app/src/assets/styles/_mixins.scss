@@ -76,7 +76,7 @@
   border-radius: 0.375rem;
 }
 
-%select-button {
+%select-input {
   inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
   block-size: clamp(4rem, 3.3838rem + 2.6291vw, 5.75rem);
   display: flex;
@@ -89,15 +89,15 @@
   cursor: pointer;
 }
 
-@mixin select-button-dark {
-  @extend %select-button;
+@mixin select-input-dark {
+  @extend %select-input;
 
   color: v.$color-pure-white;
   background-color: v.$color-navy;
 }
 
-@mixin select-button-light {
-  @extend %select-button;
+@mixin select-input-light {
+  @extend %select-input;
 
   color: v.$color-dark-navy;
   background-color: v.$color-pure-white;

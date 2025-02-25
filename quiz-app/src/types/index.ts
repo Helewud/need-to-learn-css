@@ -4,14 +4,14 @@ export type QuizQuestion = {
   answer: string;
 };
 
-export type Quiz = {
+export type IQuiz = {
   title: string;
   questions: (QuizQuestion & { selection?: string })[];
   completed: boolean;
 };
 
 export type QuizData = {
-  quizzes: Quiz[];
+  quizzes: IQuiz[];
 };
 
 export type ThemeMode = "light" | "dark";

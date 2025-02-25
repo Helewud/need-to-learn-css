@@ -1,21 +1,31 @@
-import { ScoreCard } from "./components/features/score/ScoreCard";
-import IconAndNameGroup from "./components/core/Icon/IconAndNameGroup";
-import { AccessibilityIcon } from "@/components/core/Icon";
-import { Question } from "./pages/QuestionPage/Question";
+import { useState } from "react";
+import { Route, Routes } from "react-router";
+import styles from "./assets/styles/Global.module.scss";
+import { QuizProvider } from "./context/QuizContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Home } from "./pages/HomePage";
+import { QuizReview } from "./pages/QuizPage/QuestionReview";
+import { Quiz } from "./pages/QuizPage/Quiz";
+import { Score } from "./pages/ScorePage";
+import { IQuiz, ThemeMode } from "./types";
 
 const App = () => {
-  return (
-    <>
-      {/* <ScoreCard correctCount={8} totalCount={20}>
-        <IconAndNameGroup name="Accessibility">
-          <AccessibilityIcon />
-        </IconAndNameGroup>
-      </ScoreCard> */}
-      {/* <Home /> */}
+  const [theme, setTheme] = useState<ThemeMode>("dark");
+  const [quiz, setQuiz] = useState<IQuiz>();
 
-      {/* <Question /> */}
-    </>
+  return (
+    <ThemeProvider value={{ theme, setTheme }}>
+      <QuizProvider value={{ quiz, setQuiz }}>
+        <main className={styles[`${theme}-theme`]}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/question" element={<Quiz />} />
+            <Route path="/result" element={<Score />} />
+            <Route path="/review" element={<QuizReview />} />
+          </Routes>
+        </main>
+      </QuizProvider>
+    </ThemeProvider>
   );
 };
 

@@ -48,3 +48,43 @@
     padding-top: 6.25rem;
   }
 }
+
+%card {
+  @include m.flex-center;
+
+  // inline-size: clamp(20.4375rem, 15.2218rem + 22.2535vw, 35.25rem);
+  // block-size: clamp(15.125rem, 11.912rem + 13.7089vw, 24.25rem);
+  inline-size: 100%;
+  block-size: clamp(15.125rem, 6.4179rem + 37.1501vw, 24.25rem);
+  flex-direction: column;
+  padding: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+  gap: clamp(1rem, 0.4718rem + 2.2535vw, 2.5rem);
+  border-radius: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
+
+  .text-area {
+    @include m.flex-center;
+
+    flex-direction: column;
+    gap: v.$size-200;
+
+    h2 {
+      @include m.text-preset-display;
+    }
+
+    p {
+      @include m.text-preset-body-md;
+    }
+  }
+}
+
+.card-dark {
+  @extend %card;
+
+  background-color: v.$color-navy;
+}
+
+.card-light {
+  @extend %card;
+
+  background-color: v.$color-pure-white;
+}

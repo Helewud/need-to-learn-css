@@ -1,17 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
-import HomeSelectButton from "../../components/features/home/HomeSelectButton";
 import Layout from "../../components/features/layout/Layout";
 import { QuizContext } from "../../context/QuizContext";
 import { fetchQuiz } from "../../services/api";
-import { Quiz, QuizCategory } from "../../types";
+import { IQuiz, QuizCategory } from "../../types";
 import styles from "./Home.module.scss";
+import HomeSelectButton from "./HomeSelectButton";
 
 export const Home = () => {
   const navigate = useNavigate();
   const { setQuiz } = useContext(QuizContext);
-  const [quizData, setQuizData] = useState<Quiz[]>();
+  const [quizData, setQuizData] = useState<IQuiz[]>();
 
   useEffect(() => {
     (async () => {

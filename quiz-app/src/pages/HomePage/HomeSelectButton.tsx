@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./Home.module.scss";
 
 interface HomeSelectButtonProps {
@@ -15,7 +15,7 @@ const HomeSelectButton: React.FC<HomeSelectButtonProps> = ({
 }) => {
   const { theme } = useContext(ThemeContext);
 
-  const buttonStyle = styles[`select-button-${theme}`];
+  const buttonStyle = styles[`select-input-${theme}`];
 
   return (
     <button className={buttonStyle} value={category} onClick={clickAction}>

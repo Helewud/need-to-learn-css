@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./Score.module.scss";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 interface ScoreCardProps {
   children: React.ReactNode;

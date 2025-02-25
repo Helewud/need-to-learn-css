@@ -4,10 +4,10 @@ import { Button } from "../../components/core/Button";
 import { IconAndNameGroup } from "../../components/core/Icon";
 import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
 import { Layout } from "../../components/features/layout";
-import { ScoreCard } from "../../components/features/score/ScoreCard";
 import { QuizContext } from "../../context/QuizContext";
 import { QuizCategory } from "../../types";
 import styles from "./Score.module.scss";
+import { ScoreCard } from "./ScoreCard";
 
 export const Score = () => {
   const navigate = useNavigate();
@@ -16,11 +16,10 @@ export const Score = () => {
   useEffect(() => {
     if (!quiz || !quiz.title || !quiz?.questions?.length || !quiz.completed) {
       navigate("/");
-      return;
     }
   }, [quiz, navigate]);
 
-  if (!quiz || !quiz.title || !quiz?.questions?.length) {
+  if (!quiz || !quiz.title || !quiz?.questions?.length || !quiz.completed) {
     return;
   }
 
@@ -30,17 +29,9 @@ export const Score = () => {
   const totalCount = quiz.questions.length;
 
   questions?.forEach((q) => q.answer === q.selection && correctCount++);
-
-  const handleRetryQuiz = () => {
-    navigate("/");
-  };
-
-  const handleReviewQuiz = () => {
-    navigate("/review");
-  };
-
+  const routeHome = () => navigate("/");
+  const routeReview = () => navigate("/review");
   const icon = GetIconComponentByCategory(category as QuizCategory);
-
   const iconGroup = <IconAndNameGroup name={category}>{icon}</IconAndNameGroup>;
 
   return (
@@ -56,8 +47,8 @@ export const Score = () => {
             {iconGroup}
           </ScoreCard>
 
-          <Button clickAction={handleRetryQuiz} text="Play Again" />
-          <Button clickAction={handleReviewQuiz} text="Review Solution" />
+          <Button clickAction={routeHome} text="Play Again" />
+          <Button clickAction={routeReview} text="Review Solution" />
         </div>
       </div>
     </Layout>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./Quiz.module.scss";
 
 const updateProgressBar = (element: HTMLDivElement, progress: number) => {
@@ -17,12 +17,9 @@ export const QuizProgressBar = ({ progress }: { progress: number }) => {
     }
   }, [progress]);
 
-  const trackStyle = styles[`progress-track-${theme}`];
-  const barStyle = styles["progress-bar"];
-
   return (
-    <div className={trackStyle}>
-      <div ref={elementRef} className={barStyle}></div>
+    <div className={styles[`progress-track-${theme}`]}>
+      <div ref={elementRef} className={styles["progress-bar"]}></div>
     </div>
   );
 };

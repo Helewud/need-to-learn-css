@@ -1,9 +1,9 @@
 import { createContext, ReactElement } from "react";
-import { Quiz } from "../types";
+import { IQuiz } from "../types";
 
 interface QuizContextProps {
-  quiz?: Quiz;
-  setQuiz: React.Dispatch<Quiz>;
+  quiz?: IQuiz;
+  setQuiz: React.Dispatch<IQuiz>;
 }
 
 interface QuizProviderProps {
