@@ -7,7 +7,7 @@ export type QuizQuestion = {
 export type Quiz = {
   title: string;
   icon: string;
-  questions: QuizQuestion[];
+  questions: (QuizQuestion & { selection?: string })[];
 };
 
 export type QuizData = {
@@ -17,3 +17,10 @@ export type QuizData = {
 export type ThemeMode = "light" | "dark";
 
 export type QuizCategory = "HTML" | "CSS" | "JavaScript" | "Accessibility";
+
+export type QuizResponse = {
+  question: string;
+  options: string[];
+  answer: string;
+  selection: string;
+};

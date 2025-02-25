@@ -1,16 +1,5 @@
-/* eslint-disable react-refresh/only-export-components */
 import { ReactElement, createContext } from "react";
 import { ThemeMode } from "../types";
-
-/**
- *
- *
- *
- *
- *
- *
- *
- */
 
 interface ThemeContextProps {
   theme: ThemeMode;

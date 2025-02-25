@@ -1,75 +1,28 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, ReactElement } from "react";
-import { QuizQuestion } from "../types";
+import { Quiz } from "../types";
 
-/**
- *
- *
- *
- *
- *
- *
- *
- */
-
-interface QuizCategoryContextProps {
-  category: string;
-  setCategory: React.Dispatch<string>;
+interface QuizContextProps {
+  quiz?: Quiz;
+  setQuiz: React.Dispatch<Quiz>;
 }
 
-interface QuizCategoryProviderProps {
+interface QuizProviderProps {
   children: ReactElement;
-  value: QuizCategoryContextProps;
+  value: QuizContextProps;
 }
 
-export const QuizCategoryContext = createContext<QuizCategoryContextProps>({
-  category: "",
-  setCategory: () => null,
+export const QuizContext = createContext<QuizContextProps>({
+  quiz: undefined,
+  setQuiz: () => null,
 });
 
-export const QuizCategoryProvider: React.FC<QuizCategoryProviderProps> = ({
+export const QuizProvider: React.FC<QuizProviderProps> = ({
   children,
-  value: { category, setCategory },
+  value: { quiz, setQuiz },
 }) => {
   return (
-    <QuizCategoryContext.Provider value={{ category, setCategory }}>
+    <QuizContext.Provider value={{ quiz, setQuiz }}>
       {children}
-    </QuizCategoryContext.Provider>
-  );
-};
-
-/**
- *
- *
- *
- *
- *
- *
- *
- */
-
-interface QuizQuestionsContextProps {
-  questions: QuizQuestion[];
-  setQuestions: React.Dispatch<QuizQuestion[]>;
-}
-
-interface QuizQuestionsProviderProps {
-  children: ReactElement;
-  value: QuizQuestionsContextProps;
-}
-
-export const QuizQuestionsContext = createContext<QuizQuestionsContextProps>({
-  questions: [],
-  setQuestions: () => null,
-});
-
-export const QuizQuestionsProvider: React.FC<QuizQuestionsProviderProps> = ({
-  children,
-  value: { questions, setQuestions },
-}) => {
-  return (
-    <QuizQuestionsContext.Provider value={{ questions, setQuestions }}>
-      {children}
-    </QuizQuestionsContext.Provider>
+    </QuizContext.Provider>
   );
 };
