@@ -14,7 +14,7 @@ const QuizOptionIcon = ({ letter }: { letter: string }) => {
 interface QuizSelectButtonProps {
   option: string;
   text: string;
-  status?: "correct" | "incorrect";
+  status?: "correct" | "incorrect" | "default";
   clickAction: (e: React.MouseEvent) => void;
 }
 
@@ -28,6 +28,10 @@ export const QuizSelectButton: React.FC<QuizSelectButtonProps> = ({
   let buttonStyle = styles[`select-button-${theme}`];
 
   let statusIcon = null;
+
+  if (status === "default") {
+    statusIcon = <CorrectIcon />;
+  }
 
   if (status === "correct") {
     buttonStyle += ` ${styles["correct"]}`;

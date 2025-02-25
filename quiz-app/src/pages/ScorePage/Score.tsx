@@ -14,7 +14,7 @@ export const Score = () => {
   const { quiz } = useContext(QuizContext);
 
   useEffect(() => {
-    if (!quiz || !quiz.title || !quiz?.questions?.length) {
+    if (!quiz || !quiz.title || !quiz?.questions?.length || !quiz.completed) {
       navigate("/");
       return;
     }
@@ -35,6 +35,10 @@ export const Score = () => {
     navigate("/");
   };
 
+  const handleReviewQuiz = () => {
+    navigate("/review");
+  };
+
   const icon = GetIconComponentByCategory(category as QuizCategory);
 
   const iconGroup = <IconAndNameGroup name={category}>{icon}</IconAndNameGroup>;
@@ -53,7 +57,7 @@ export const Score = () => {
           </ScoreCard>
 
           <Button clickAction={handleRetryQuiz} text="Play Again" />
-          <Button clickAction={handleRetryQuiz} text="Review Solution" />
+          <Button clickAction={handleReviewQuiz} text="Review Solution" />
         </div>
       </div>
     </Layout>

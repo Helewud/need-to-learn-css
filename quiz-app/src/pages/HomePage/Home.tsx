@@ -26,8 +26,13 @@ export const Home = () => {
 
   const handleQuizCategory = (e: React.MouseEvent) => {
     const target = e.target as HTMLButtonElement;
-    setQuiz(quizData.find((q) => q.title === target.value)!);
-    navigate("/question");
+
+    const quiz = quizData.find((q) => q.title === target.value);
+    if (quiz) {
+      quiz.completed = false;
+      setQuiz(quiz);
+      navigate("/question");
+    }
   };
 
   return (

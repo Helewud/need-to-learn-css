@@ -6,8 +6,8 @@ export type QuizQuestion = {
 
 export type Quiz = {
   title: string;
-  icon: string;
   questions: (QuizQuestion & { selection?: string })[];
+  completed: boolean;
 };
 
 export type QuizData = {

@@ -48,6 +48,14 @@
       inline-size: 100%;
     }
   }
+
+  .question-nav {
+    @include m.flex-center;
+
+    inline-size: 100%;
+    flex-direction: row;
+    gap: 5%;
+  }
 }
 
 @media (min-width: 54rem) {
