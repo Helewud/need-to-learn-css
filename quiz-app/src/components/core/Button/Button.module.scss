@@ -18,4 +18,8 @@
   &:hover {
     background-color: color.mix(v.$color-purple, v.$color-pure-white, $weight: 50%, $method: rgb);
   }
+
+  &:disabled {
+    background-color: color.mix(v.$color-navy, v.$color-pure-white, $weight: 50%, $method: rgb);
+  }
 }
