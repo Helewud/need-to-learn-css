@@ -35,10 +35,10 @@ export const Quiz = () => {
 
   const resetInputActiveState = () => {
     if (optionSelectionRef.current) {
-      const fieldSet = optionSelectionRef.current?.children[0];
-      const labelGroup = fieldSet!.children!;
+      const fieldSetGroup = optionSelectionRef.current?.children[0];
+      const inputList = fieldSetGroup!.children!;
 
-      for (const child of labelGroup) {
+      for (const child of inputList) {
         child.classList.remove(styles["active"]);
       }
     }
@@ -71,10 +71,10 @@ export const Quiz = () => {
     resetInputActiveState();
 
     const target = e.currentTarget as HTMLInputElement;
-    const inputLabel = (e.target as HTMLInputElement).parentElement;
+    currentQuestion.selection = target.value!;
 
-    currentQuestion.selection = target.value;
-    inputLabel?.classList.add(styles["active"]);
+    const inputLabel = target.parentElement!;
+    inputLabel.classList.add(styles["active"]);
   };
 
   const handleHeader = () => {

@@ -18,14 +18,6 @@ export const QuizInputGroup: React.FC<QuizInputGroupProps> = ({
 }) => {
   const { theme } = useContext(ThemeContext);
 
-  const OptionIcon = ({ letter }: { letter: string }) => {
-    return (
-      <div className={styles["option-icon"]}>
-        <p>{letter}</p>
-      </div>
-    );
-  };
-
   const handleQuestionStatus = (
     option: string,
     selection?: string,
@@ -80,7 +72,9 @@ export const QuizInputGroup: React.FC<QuizInputGroupProps> = ({
               onClick={clickAction}
             />
 
-            <OptionIcon letter={optionLetter} />
+            <div className={styles["option-icon"]}>
+              <p>{optionLetter}</p>
+            </div>
 
             <div className={styles["text-area"]}>
               <p>{op}</p>

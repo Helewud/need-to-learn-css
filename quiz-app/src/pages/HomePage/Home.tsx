@@ -3,14 +3,15 @@ import { useNavigate } from "react-router";
 import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
 import Layout from "../../components/features/layout/Layout";
 import { QuizContext } from "../../context/QuizContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import { fetchQuiz } from "../../services/api";
 import { IQuiz, QuizCategory } from "../../types";
 import styles from "./Home.module.scss";
-import HomeSelectButton from "./HomeSelectButton";
 
 export const Home = () => {
   const navigate = useNavigate();
   const { setQuiz } = useContext(QuizContext);
+  const { theme } = useContext(ThemeContext);
   const [quizData, setQuizData] = useState<IQuiz[]>();
 
   useEffect(() => {
@@ -25,8 +26,7 @@ export const Home = () => {
   if (!quizData) return;
 
   const handleQuizCategory = (e: React.MouseEvent) => {
-    const target = e.target as HTMLButtonElement;
-
+    const target = e.target as HTMLInputElement;
     const quiz = quizData.find((q) => q.title === target.value);
     if (quiz) {
       quiz.completed = false;
@@ -46,20 +46,25 @@ export const Home = () => {
           <p>Pick a subject to get started.</p>
         </section>
 
-        <div className={styles["category-options"]}>
+        <fieldset className={styles["category-options"]} role="navigation">
           {quizData.map(({ title }, index) => {
             const icon = GetIconComponentByCategory(title as QuizCategory);
             return (
-              <HomeSelectButton
-                key={index}
-                category={title}
-                clickAction={handleQuizCategory}
-              >
+              <label className={styles[`select-input-${theme}`]} key={index}>
+                <input
+                  key={index}
+                  type="radio"
+                  id={`category-${title}`}
+                  name="category-selection"
+                  value={title}
+                  onClick={handleQuizCategory}
+                />
                 {icon}
-              </HomeSelectButton>
+                <p>{title}</p>
+              </label>
             );
           })}
-        </div>
+        </fieldset>
       </div>
     </Layout>
   );
