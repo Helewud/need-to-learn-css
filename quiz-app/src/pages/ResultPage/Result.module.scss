@@ -73,6 +73,14 @@
 
     p {
       @include m.text-preset-body-md;
+
+      &.dark-theme {
+        color: v.$color-light-bluish;
+      }
+
+      &.light-theme {
+        color: v.$color-grey-navy;
+      }
     }
   }
 }

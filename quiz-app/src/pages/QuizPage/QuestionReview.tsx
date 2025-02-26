@@ -9,9 +9,11 @@ import { QuizCategory } from "../../types";
 import styles from "./Quiz.module.scss";
 import { QuizInputGroup } from "./QuizInput";
 import { QuizProgressBar } from "./QuizProgressBar";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const QuizReview = () => {
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
   const { quiz } = useContext(QuizContext);
   const [questionCount, setQuestionCount] = useState(0);
 
@@ -54,7 +56,10 @@ export const QuizReview = () => {
       <div className={styles.content}>
         <section className={styles["question-content"]}>
           <div className={styles["p-bar"]}>
-            <QuizProgressBar progress={(currentCount / totalCount) * 100} />
+            <QuizProgressBar
+              theme={theme}
+              progress={(currentCount / totalCount) * 100}
+            />
           </div>
 
           <div className={styles["text-area"]}>
@@ -68,6 +73,7 @@ export const QuizReview = () => {
         <div className={styles["options-selection"]}>
           {
             <QuizInputGroup
+              theme={theme}
               options={currentQuestion.options}
               selection={currentQuestion.selection}
               answer={currentQuestion.answer}

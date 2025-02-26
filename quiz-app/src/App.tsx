@@ -6,7 +6,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { Home } from "./pages/HomePage";
 import { QuizReview } from "./pages/QuizPage/QuestionReview";
 import { Quiz } from "./pages/QuizPage/Quiz";
-import { Score } from "./pages/ScorePage";
+import { Result } from "./pages/ResultPage";
 import { IQuiz, ThemeMode } from "./types";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/question" element={<Quiz />} />
-            <Route path="/result" element={<Score />} />
+            <Route path="/result" element={<Result />} />
             <Route path="/review" element={<QuizReview />} />
           </Routes>
         </main>

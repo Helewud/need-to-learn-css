@@ -1,5 +1,5 @@
-import { useContext, useEffect, useRef } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useEffect, useRef } from "react";
+import { ThemeMode } from "../../types/index";
 import styles from "./Quiz.module.scss";
 
 const updateProgressBar = (element: HTMLDivElement, progress: number) => {
@@ -7,8 +7,13 @@ const updateProgressBar = (element: HTMLDivElement, progress: number) => {
   element.style.inlineSize = progress + "%";
 };
 
-export const QuizProgressBar = ({ progress }: { progress: number }) => {
-  const { theme } = useContext(ThemeContext);
+export const QuizProgressBar = ({
+  theme,
+  progress,
+}: {
+  theme: ThemeMode;
+  progress: number;
+}) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

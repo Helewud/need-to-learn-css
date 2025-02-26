@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styles from "./Score.module.scss";
+import styles from "./Result.module.scss";
 import { ThemeContext } from "../../context/ThemeContext";
 
 interface ScoreCardProps {
@@ -21,7 +21,7 @@ export const ScoreCard: React.FC<ScoreCardProps> = ({
       {children}
       <section className={styles["text-area"]}>
         <h2>{correctCount}</h2>
-        <p>out of {totalCount}</p>
+        <p className={styles[theme + "-theme"]}>out of {totalCount}</p>
       </section>
     </div>
   );

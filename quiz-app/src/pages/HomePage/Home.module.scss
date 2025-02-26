@@ -33,6 +33,14 @@
 
   .header p {
     @include m.text-preset-body-sm;
+
+    &.dark-theme {
+      color: v.$color-light-bluish;
+    }
+
+    &.light-theme {
+      color: v.$color-grey-navy;
+    }
   }
 
   .category-options {

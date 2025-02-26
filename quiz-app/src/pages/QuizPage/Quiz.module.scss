@@ -4,7 +4,7 @@
 .content {
   inline-size: 100%;
   min-inline-size: 16.25rem;
-  block-size: 100%;
+  block-size: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +32,14 @@
 
       p {
         @include m.text-preset-body-sm;
+
+        &.dark-theme {
+          color: v.$color-light-bluish;
+        }
+
+        &.light-theme {
+          color: v.$color-grey-navy;
+        }
       }
     }
   }
@@ -40,7 +48,7 @@
     @include m.flex-center;
 
     inline-size: 100%;
-    block-size: 100%;
+    block-size: auto;
     flex-direction: column;
     gap: clamp(v.$size-200, 1%, v.$size-400);
 
@@ -53,15 +61,24 @@
 
       inline-size: 100%;
       flex-direction: column;
-      padding: clamp(v.$size-300, 1%, v.$size-400), 0;
-      gap: clamp(calc(v.$size-100 + v.$size-50), 1%, v.$size-300);
 
-      .validation-message {
+      %validation-message {
         @include m.flex-center;
         @include m.text-preset-body-md;
 
-        color: v.$color-red;
         gap: v.$size-100;
+      }
+
+      .validation-message-dark {
+        @extend %validation-message;
+
+        color: inherit;
+      }
+
+      .validation-message-light {
+        @extend %validation-message;
+
+        color: v.$color-red;
       }
     }
   }

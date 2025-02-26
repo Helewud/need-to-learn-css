@@ -1,9 +1,7 @@
 import { QuizData } from "../types";
 
 export const fetchQuiz = async () => {
-  const response = await fetch(
-    "http://localhost:5173/src/assets/data/data.json"
-  );
+  const response = await fetch("/data/data.json");
 
   if (response.ok) {
     const quizData = (await response.json()) as QuizData;

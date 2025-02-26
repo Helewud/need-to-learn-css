@@ -12,9 +12,11 @@ import { QuizCategory } from "../../types";
 import styles from "./Quiz.module.scss";
 import { QuizInputGroup } from "./QuizInput";
 import { QuizProgressBar } from "./QuizProgressBar";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const Quiz = () => {
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
   const { quiz } = useContext(QuizContext);
   const [questionCount, setQuestionCount] = useState(0);
   const [hasError, setHasError] = useState(false);
@@ -87,11 +89,14 @@ export const Quiz = () => {
       <div className={styles.content}>
         <section className={styles["question-content"]}>
           <div className={styles["p-bar"]}>
-            <QuizProgressBar progress={(currentCount / totalCount) * 100} />
+            <QuizProgressBar
+              theme={theme}
+              progress={(currentCount / totalCount) * 100}
+            />
           </div>
 
           <div className={styles["text-area"]}>
-            <p>
+            <p className={styles[theme + "-theme"]}>
               Question {currentCount} of {totalCount}
             </p>
             <h2>{currentQuestion.question}</h2>
@@ -101,6 +106,7 @@ export const Quiz = () => {
         <div ref={optionSelectionRef} className={styles["options-selection"]}>
           {
             <QuizInputGroup
+              theme={theme}
               options={currentQuestion.options}
               clickAction={handleInputSelection}
             />
@@ -117,7 +123,7 @@ export const Quiz = () => {
 
             {/* Validation error message */}
             {hasError && (
-              <div className={styles["validation-message"]}>
+              <div className={styles["validation-message-" + theme]}>
                 <IncorrectIcon />
                 <p>Please select an answer</p>
               </div>

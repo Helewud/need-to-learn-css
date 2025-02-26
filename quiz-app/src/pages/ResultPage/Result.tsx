@@ -6,10 +6,10 @@ import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
 import { Layout } from "../../components/features/layout";
 import { QuizContext } from "../../context/QuizContext";
 import { QuizCategory } from "../../types";
-import styles from "./Score.module.scss";
+import styles from "./Result.module.scss";
 import { ScoreCard } from "./ScoreCard";
 
-export const Score = () => {
+export const Result = () => {
   const navigate = useNavigate();
   const { quiz } = useContext(QuizContext);
 

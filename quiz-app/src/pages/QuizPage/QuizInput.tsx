@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import { CorrectIcon, IncorrectIcon } from "../../components/core/Icon/Icon";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeMode } from "../../types/index";
 import styles from "./Quiz.module.scss";
 
 interface QuizInputGroupProps {
+  theme: ThemeMode;
   options: string[];
   selection?: string;
   answer?: string;
@@ -11,13 +11,12 @@ interface QuizInputGroupProps {
 }
 
 export const QuizInputGroup: React.FC<QuizInputGroupProps> = ({
+  theme,
   clickAction,
   options,
   selection,
   answer,
 }) => {
-  const { theme } = useContext(ThemeContext);
-
   const handleQuestionStatus = (
     option: string,
     selection?: string,

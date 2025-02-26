@@ -43,7 +43,9 @@ export const Home = () => {
             <span className={styles["minor-header"]}>Welcome to the</span>
             <span className={styles["major-header"]}>Frontend Quiz!</span>
           </h2>
-          <p>Pick a subject to get started.</p>
+          <p className={styles[theme + "-theme"]}>
+            Pick a subject to get started.
+          </p>
         </section>
 
         <fieldset className={styles["category-options"]} role="navigation">
