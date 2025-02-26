@@ -17,6 +17,16 @@ const ThemeToggle = () => {
 
   const toggledStyle = styles[`${theme}-mode`];
 
+  const body = document.getElementsByTagName("body")[0];
+
+  if (theme === "dark") {
+    body.style.setProperty("--bg-color", "#313e51");
+  }
+
+  if (theme === "light") {
+    body.style.setProperty("--bg-color", "#f4f6fa");
+  }
+
   return (
     <button className={toggledStyle}>
       {theme === "light" ? <SunDarkIcon /> : <SunLightIcon />}

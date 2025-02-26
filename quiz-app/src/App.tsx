@@ -1,31 +1,36 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router";
 import styles from "./assets/styles/Global.module.scss";
+import { IconAndNameGroup } from "./components/core/Icon";
+import { GetIconComponentByCategory } from "./components/core/Icon/Icon";
+import Layout from "./components/features/layout/Layout";
+import { PageContentContext } from "./context/PageContentContext";
 import { QuizProvider } from "./context/QuizContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Home } from "./pages/HomePage";
-import { QuizReview } from "./pages/QuizPage/QuestionReview";
-import { Quiz } from "./pages/QuizPage/Quiz";
-import { Result } from "./pages/ResultPage";
-import { IQuiz, ThemeMode } from "./types";
+import { IQuiz, QuizCategory, ThemeMode } from "./types";
 
 const App = () => {
   const [theme, setTheme] = useState<ThemeMode>("dark");
   const [quiz, setQuiz] = useState<IQuiz>();
+  const [pageContent, setPageContent] = useState(<Home />);
+
+  const category = quiz?.title;
+
+  const handleHeader = () => {
+    const icon = GetIconComponentByCategory(category as QuizCategory);
+    return <IconAndNameGroup name={category!}>{icon}</IconAndNameGroup>;
+  };
 
   return (
-    <ThemeProvider value={{ theme, setTheme }}>
-      <QuizProvider value={{ quiz, setQuiz }}>
-        <main className={styles[`${theme}-theme`]}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/question" element={<Quiz />} />
-            <Route path="/result" element={<Result />} />
-            <Route path="/review" element={<QuizReview />} />
-          </Routes>
-        </main>
-      </QuizProvider>
-    </ThemeProvider>
+    <PageContentContext value={{ pageContent, setPageContent }}>
+      <ThemeProvider value={{ theme, setTheme }}>
+        <QuizProvider value={{ quiz, setQuiz }}>
+          <main className={styles[`${theme}-theme`]}>
+            <Layout category={handleHeader()}>{pageContent}</Layout>
+          </main>
+        </QuizProvider>
+      </ThemeProvider>
+    </PageContentContext>
   );
 };
 

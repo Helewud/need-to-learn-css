@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
-import Layout from "../../components/features/layout/Layout";
+import { PageContentContext } from "../../context/PageContentContext";
 import { QuizContext } from "../../context/QuizContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import { fetchQuiz } from "../../services/api";
 import { IQuiz, QuizCategory } from "../../types";
+import { Quiz } from "../QuizPage/Quiz";
 import styles from "./Home.module.scss";
 
 export const Home = () => {
-  const navigate = useNavigate();
+  const { setPageContent } = useContext(PageContentContext);
   const { setQuiz } = useContext(QuizContext);
   const { theme } = useContext(ThemeContext);
   const [quizData, setQuizData] = useState<IQuiz[]>();
@@ -31,43 +31,41 @@ export const Home = () => {
     if (quiz) {
       quiz.completed = false;
       setQuiz(quiz);
-      navigate("/question");
+      setPageContent(<Quiz />);
     }
   };
 
   return (
-    <Layout>
-      <div className={styles.content}>
-        <section className={styles.header}>
-          <h2>
-            <span className={styles["minor-header"]}>Welcome to the</span>
-            <span className={styles["major-header"]}>Frontend Quiz!</span>
-          </h2>
-          <p className={styles[theme + "-theme"]}>
-            Pick a subject to get started.
-          </p>
-        </section>
+    <div className={styles.content}>
+      <section className={styles.header}>
+        <h2>
+          <span className={styles["minor-header"]}>Welcome to the</span>
+          <span className={styles["major-header"]}>Frontend Quiz!</span>
+        </h2>
+        <p className={styles[theme + "-theme"]}>
+          Pick a subject to get started.
+        </p>
+      </section>
 
-        <fieldset className={styles["category-options"]} role="navigation">
-          {quizData.map(({ title }, index) => {
-            const icon = GetIconComponentByCategory(title as QuizCategory);
-            return (
-              <label className={styles[`select-input-${theme}`]} key={index}>
-                <input
-                  key={index}
-                  type="radio"
-                  id={`category-${title}`}
-                  name="category-selection"
-                  value={title}
-                  onClick={handleQuizCategory}
-                />
-                {icon}
-                <p>{title}</p>
-              </label>
-            );
-          })}
-        </fieldset>
-      </div>
-    </Layout>
+      <fieldset className={styles["category-options"]} role="navigation">
+        {quizData.map(({ title }, index) => {
+          const icon = GetIconComponentByCategory(title as QuizCategory);
+          return (
+            <label className={styles[`select-input-${theme}`]} key={index}>
+              <input
+                key={index}
+                type="radio"
+                id={`category-${title}`}
+                name="category-selection"
+                value={title}
+                onClick={handleQuizCategory}
+              />
+              {icon}
+              <p>{title}</p>
+            </label>
+          );
+        })}
+      </fieldset>
+    </div>
   );
 };

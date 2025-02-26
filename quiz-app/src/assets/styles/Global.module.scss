@@ -20,6 +20,10 @@ html {
 }
 
 body {
+  // the variable --bg-color is set dynamically
+  // from the theme toggle component
+  background-color: var(--bg-color);
+
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
