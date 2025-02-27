@@ -21,7 +21,7 @@ export const Home = () => {
 
       setQuizData(resp);
     })();
-  }, []);
+  }, [setQuizData]);
 
   if (!quizData) return;
 

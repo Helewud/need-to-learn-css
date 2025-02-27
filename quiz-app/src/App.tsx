@@ -7,12 +7,13 @@ import { PageContentContext } from "./context/PageContentContext";
 import { QuizProvider } from "./context/QuizContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Home } from "./pages/HomePage";
-import { IQuiz, QuizCategory, ThemeMode } from "./types";
+import { IQuiz, QuizCategory } from "./types";
+import { useLocalStorage } from "./hooks";
 
 const App = () => {
-  const [theme, setTheme] = useState<ThemeMode>("dark");
   const [quiz, setQuiz] = useState<IQuiz>();
   const [pageContent, setPageContent] = useState(<Home />);
+  const [theme, setTheme] = useLocalStorage("theme", "dark");
 
   const category = quiz?.title;
 
