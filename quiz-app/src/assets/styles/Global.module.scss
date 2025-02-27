@@ -34,6 +34,8 @@ body {
 main {
   min-height: 100vh;
   min-height: 100dvh;
+  display: flex;
+  justify-content: center;
 
   background-repeat: no-repeat;
   background-position: top left;
@@ -42,13 +44,11 @@ main {
 
 main.dark-theme {
   color: v.$color-pure-white;
-  background-color: v.$color-dark-navy;
   background-image: url("../images/pattern-background-mobile-dark.svg");
 }
 
 main.light-theme {
   color: v.$color-dark-navy;
-  background-color: v.$color-light-grey;
   background-image: url("../images/pattern-background-mobile-light.svg");
 }
 
