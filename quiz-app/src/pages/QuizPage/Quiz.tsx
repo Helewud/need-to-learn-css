@@ -77,7 +77,7 @@ export const Quiz = () => {
 
   return (
     <div className={styles.content}>
-      <section className={styles["question-content"]}>
+      <div className={styles["question-content"]}>
         <div className={styles["p-bar"]}>
           <QuizProgressBar
             theme={theme}
@@ -85,13 +85,13 @@ export const Quiz = () => {
           />
         </div>
 
-        <div className={styles["text-area"]}>
+        <section className={styles["text-area"]}>
           <p className={styles[theme + "-theme"]}>
             Question {currentCount} of {totalCount}
           </p>
           <h2>{currentQuestion.question}</h2>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <div ref={optionSelectionRef} className={styles["options-selection"]}>
         {

@@ -28,11 +28,11 @@ const ThemeToggle = () => {
   }
 
   return (
-    <button className={toggledStyle}>
+    <div className={toggledStyle}>
       {theme === "light" ? <SunDarkIcon /> : <SunLightIcon />}
 
       {/* The switch container acts as a clickable area to toggle the theme. */}
-      <div
+      <button
         className={styles["switch"]}
         onClick={() => {
           if (theme === "light") setTheme("dark");
@@ -40,11 +40,11 @@ const ThemeToggle = () => {
         }}
       >
         {/* Visual representation of the switch knob */}
-        <div className={styles["switch-knob"]}></div>
-      </div>
+        <span className={styles["switch-knob"]}></span>
+      </button>
 
       {theme === "light" ? <MoonDarkIcon /> : <MoonLightIcon />}
-    </button>
+    </div>
   );
 };
 

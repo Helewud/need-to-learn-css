@@ -46,7 +46,7 @@ export const QuizReview = () => {
 
   return (
     <div className={styles.content}>
-      <section className={styles["question-content"]}>
+      <div className={styles["question-content"]}>
         <div className={styles["p-bar"]}>
           <QuizProgressBar
             theme={theme}
@@ -60,7 +60,7 @@ export const QuizReview = () => {
           </p>
           <h2>{currentQuestion.question}</h2>
         </div>
-      </section>
+      </div>
 
       <div className={styles["options-selection"]}>
         {

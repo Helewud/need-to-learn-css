@@ -47,25 +47,29 @@ export const Home = () => {
         </p>
       </section>
 
-      <fieldset className={styles["category-options"]} role="navigation">
-        {quizData.map(({ title }, index) => {
-          const icon = GetIconComponentByCategory(title as QuizCategory);
-          return (
-            <label className={styles[`select-input-${theme}`]} key={index}>
-              <input
-                key={index}
-                type="radio"
-                id={`category-${title}`}
-                name="category-selection"
-                value={title}
-                onClick={handleQuizCategory}
-              />
-              {icon}
-              <p>{title}</p>
-            </label>
-          );
-        })}
-      </fieldset>
+      <nav className={styles["category-options"]}>
+        <ul className={styles["options-group"]}>
+          {quizData.map(({ title }, index) => {
+            const icon = GetIconComponentByCategory(title as QuizCategory);
+            return (
+              <li key={index} data-category={title}>
+                <label className={styles[`select-input-${theme}`]}>
+                  <input
+                    type="radio"
+                    id={`category-${title}`}
+                    name="category-selection"
+                    value={title}
+                    onClick={handleQuizCategory}
+                    style={{ display: "none" }}
+                  />
+                  {icon}
+                  <span>{title}</span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </div>
   );
 };

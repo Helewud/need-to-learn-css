@@ -10,14 +10,12 @@ export const Button = ({
   clickAction?: (e: React.MouseEvent) => void;
 }) => {
   return (
-    <>
-      <button
-        disabled={isDisabled}
-        className={styles["submit-button"]}
-        onClick={clickAction}
-      >
-        {text}
-      </button>
-    </>
+    <button
+      disabled={isDisabled}
+      className={styles["submit-button"]}
+      onClick={clickAction}
+    >
+      {text}
+    </button>
   );
 };

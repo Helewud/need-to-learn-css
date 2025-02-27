@@ -46,16 +46,21 @@
   .category-options {
     @include m.flex-center;
 
-    input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-    }
-
-    list-style: none;
     inline-size: 100%;
-    flex-direction: column;
-    gap: clamp(calc(v.$size-100 + v.$size-50), 10%, v.$size-300);
-    border: 0;
+
+    .options-group {
+      inline-size: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(calc(v.$size-100 + v.$size-50), 10%, v.$size-300);
+      list-style: none;
+      border: 0;
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+      }
+    }
   }
 }
 

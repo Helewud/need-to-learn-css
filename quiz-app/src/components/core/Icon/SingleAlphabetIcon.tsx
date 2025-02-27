@@ -6,9 +6,9 @@ interface SingleAlphabetIconProps {
 
 const SingleAlphabetIcon: React.FC<SingleAlphabetIconProps> = ({ letter }) => {
   return (
-    <div className={styles["boxed-icon-bg-grey"]}>
-      <p>{letter}</p>
-    </div>
+    <span className={styles["boxed-icon-bg-grey"]}>
+      <span>{letter}</span>
+    </span>
   );
 };
 

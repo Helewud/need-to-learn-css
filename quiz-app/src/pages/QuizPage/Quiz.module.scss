@@ -109,18 +109,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    p {
-      inline-size: 22ch;
-      text-align: left;
-    }
+    text-align: left;
   }
 
   &:hover {
     .option-icon {
       background-color: #f6e7ff;
 
-      p {
+      .letter-icon {
         color: v.$color-purple;
       }
     }
@@ -134,7 +130,7 @@
     .option-icon {
       background-color: v.$color-purple;
 
-      p {
+      .letter-icon {
         color: v.$color-pure-white;
       }
     }
@@ -157,7 +153,7 @@
     .option-icon {
       background-color: v.$color-green;
 
-      p {
+      .letter-icon {
         color: v.$color-pure-white;
       }
     }
@@ -170,7 +166,7 @@
     .option-icon {
       background-color: v.$color-red;
 
-      p {
+      .letter-icon {
         color: v.$color-pure-white;
       }
     }
@@ -182,7 +178,7 @@
     .option-icon {
       background-color: v.$color-purple;
 
-      p {
+      .letter-icon {
         color: v.$color-pure-white;
       }
     }
@@ -242,7 +238,7 @@
 
   background-color: v.$color-light-grey;
 
-  p {
+  .letter-icon {
     @include m.text-preset-header-sm-medium;
 
     color: v.$color-grey-navy;

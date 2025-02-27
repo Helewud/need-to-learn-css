@@ -71,14 +71,14 @@ export const QuizInputGroup: React.FC<QuizInputGroupProps> = ({
               onClick={clickAction}
             />
 
-            <div className={styles["option-icon"]}>
-              <p>{optionLetter}</p>
-            </div>
+            <span className={styles["option-icon"]}>
+              <span className={styles["letter-icon"]}>{optionLetter}</span>
+            </span>
 
-            <div className={styles["text-area"]}>
-              <p>{op}</p>
+            <span className={styles["text-area"]}>
+              <span>{op}</span>
               {icon}
-            </div>
+            </span>
           </label>
         );
       })}
