@@ -34,7 +34,7 @@
     inline-size: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
-    z-index: 9999;
+    z-index: 9998;
   }
 
   .page-content {
@@ -65,5 +65,54 @@
   %layout {
     inline-size: clamp(50rem, 16.25rem + 62.5vw, 72.5rem);
     padding: 4rem 0;
+  }
+}
+
+.overlay-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  backdrop-filter: blur(v.$size-50);
+  -webkit-backdrop-filter: blur(v.$size-100);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fade-in 0.3s ease-out;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    pointer-events: none;
+  }
+
+  .spinner {
+    margin-bottom: 1.5rem;
+    animation: spin 1.2s linear infinite;
+    color: v.$color-purple;
+  }
+
+  .text-content {
+    @include m.text-preset-body-md;
+
+    margin: 0;
+    color: v.$color-dark-navy;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .overlay-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+    padding: v.$size-300;
+    border-radius: v.$size-200;
+    box-shadow:
+      0 v.$size-100,
+      v.$size-400,
+      rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transform: translateY(0);
+    animation: scale-up 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }

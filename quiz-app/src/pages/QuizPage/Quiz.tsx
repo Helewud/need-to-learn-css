@@ -16,6 +16,7 @@ export const Quiz = () => {
   const { quiz } = useContext(QuizContext);
   const [questionCount, setQuestionCount] = useState(0);
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const optionSelectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,6 +24,10 @@ export const Quiz = () => {
       setPageContent(<Home />);
     }
   }, [quiz, setPageContent]);
+
+  // if (isLoading) {
+  //   return <LoadingOverlay content={"Setting Up Quiz Environment"} />;
+  // }
 
   if (!quiz || !quiz.title || !quiz?.questions?.length) return;
 
