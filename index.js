@@ -59,6 +59,10 @@ const projectList = [
     url: "https://quiz-ch.netlify.app/",
     title: "Quiz App",
   },
+  {
+    url: "https://ch-irc.netlify.app/",
+    title: "Interactive Rating Component",
+  },
 ];
 
 class ProjectList {

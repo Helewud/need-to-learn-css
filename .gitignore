@@ -28,3 +28,5 @@ travel-landing-page-preview-master/
 # Local Netlify folder
 *.netlify
 *.env
+# Local Netlify folder
+.netlify

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-dark-blue: #262e38;
+  --color-light-grey: #969fad;
+  --color-orange: #fc7614;
+  --color-pure-white: #ffffff;
+  --color-very-dark-blue: #131518;
+}
+
+:root {
+  --fluid-card-width: clamp(20.4375rem, 18.5669rem + 7.9812vw, 25.75rem);
+  --fluid-card-height: clamp(22.5rem, 21.2676rem + 5.2582vw, 26rem);
+
+  --fluid-rating-option-width: clamp(2.625rem, 2.4269rem + 0.8451vw, 3.1875rem);
+  --fluid-rating-option-height: clamp(
+    2.625rem,
+    2.4269rem + 0.8451vw,
+    3.1875rem
+  );
+  --fluid-rating-gap: clamp(1.125rem, 1.059rem + 0.2817vw, 1.3125rem);
+
+  --fluid-text-heading-large: clamp(1.5rem, 1.412rem + 0.3756vw, 1.75rem);
+  --fluid-text-heading-medium: clamp(0.875rem, 0.853rem + 0.0939vw, 0.9375rem);
+  --fluid-text-body: clamp(0.875rem, 0.853rem + 0.0939vw, 0.9375rem);
+  --fluid-text-rating: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+
+  --fluid-spacing-1: clamp(1.125rem, 0.9489rem + 0.7512vw, 1.625rem);
+  --fluid-spacing-2: clamp(1.5rem, 1.4085rem + 0.6573vw, 2rem);
+
+  --fluid-border-radius: clamp(0.9375rem, 0.6074rem + 1.4085vw, 1.875rem);
+
+  --fluid-logo-width: clamp(2.5rem, 2.3239rem + 0.7512vw, 3rem);
+  --fluid-logo-height: clamp(2.5rem, 2.3239rem + 0.7512vw, 3rem);
+
+  --fluid-thanks-banner-width: clamp(9rem, 8.6039rem + 1.6901vw, 10.125rem);
+  --fluid-thanks-banner-height: clamp(6rem, 5.7359rem + 1.1268vw, 6.75rem);
+
+  --fluid-text-banner-width: clamp(10.5rem, 9.9498rem + 2.3474vw, 12.0625rem);
+}
+
+@utility bg-black-gradient {
+  background: radial-gradient(#232a34 0%, #181e27 100%);
+}
+
+@utility text-heading-large {
+  font-family: "Overpass", serif;
+  font-weight: 700;
+  font-size: var(--fluid-text-heading-large);
+}
+
+@utility text-heading-medium {
+  font-family: "Overpass", serif;
+  font-weight: 700;
+  font-size: var(--fluid-text-heading-medium);
+  word-spacing: 0.125rem;
+}
+
+@utility text-body {
+  font-family: "Overpass", serif;
+  font-weight: 500;
+  font-size: var(--fluid-text-body);
+  line-height: 1.5rem;
+}
+
+@utility text-rating {
+  font-family: "Overpass", serif;
+  font-weight: 700;
+  font-size: var(--fluid-text-rating);
+  line-height: 1.5rem;
+  word-spacing: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+}
+
+@utility display-card {
+  inline-size: var(--fluid-card-width);
+  block-size: var(--fluid-card-height);
+}
+
+@utility rating-option {
+  @apply text-rating;
+
+  inline-size: var(--fluid-rating-option-width);
+  block-size: var(--fluid-rating-option-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark-blue);
+  color: var(--color-light-grey);
+  cursor: pointer;
+  line-height: normal;
+  border-radius: 100%;
+
+  &:hover {
+    background-color: var(--color-orange);
+    color: var(--color-dark-blue);
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+@utility selected-rating-option {
+  background-color: var(--color-pure-white);
+  color: var(--color-dark-blue);
+}
+
+@utility logo-circle {
+  inline-size: var(--fluid-rating-option-width);
+  block-size: var(--fluid-logo-height);
+
+  @apply rounded-[100%] bg-dark-blue flex justify-center items-center;
+}
+
+@utility thanks-banner {
+  inline-size: var(--fluid-thanks-banner-width);
+  block-size: var(--fluid-thanks-banner-height);
+}
