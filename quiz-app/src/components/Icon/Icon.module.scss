@@ -25,6 +25,12 @@
   background-color: #ebf0ff;
 }
 
+.boxed-icon-bg-grey {
+  @include m.boxed-icon;
+
+  background-color: v.$color-light-grey;
+}
+
 .icon-name-group {
   @include m.flex-center;
 

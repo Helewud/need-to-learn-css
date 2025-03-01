@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@/components/core/ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import styles from "./Layout.module.scss";
 
 interface NavBarProps {

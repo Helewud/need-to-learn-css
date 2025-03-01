@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-
 import styles from "./Layout.module.scss";
+import { ThemeMode } from "../../types";
 
 const Spinner = () => (
   <svg width="48" height="48" viewBox="0 0 38 38" stroke="#6366f1">
@@ -22,9 +22,15 @@ const Spinner = () => (
   </svg>
 );
 
-const LoadingOverlay = ({ content }: { content: string }) => {
+const LoadingOverlay = ({
+  content,
+  theme,
+}: {
+  content: string;
+  theme: ThemeMode;
+}) => {
   const layoutRef = useRef(
-    document.getElementsByClassName(styles["layout-light"])
+    document.getElementsByClassName(styles["layout-" + theme])
   );
 
   useEffect(() => {
