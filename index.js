@@ -55,6 +55,10 @@ const projectList = [
     url: "./password-generator-app/index.html",
     title: "Password Generator App",
   },
+  {
+    url: "https://quiz-ch.netlify.app/",
+    title: "Quiz App",
+  },
 ];
 
 class ProjectList {
