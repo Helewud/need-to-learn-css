@@ -152,7 +152,7 @@
   .text-area {
     @include m.text-preset-header-sm-medium;
 
-    inline-size: 30ch;
+    max-inline-size: 30ch;
     text-align: start;
   }
 
