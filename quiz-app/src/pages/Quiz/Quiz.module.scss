@@ -94,22 +94,25 @@
   }
 }
 
+.option-icon {
+  @include m.boxed-icon;
+
+  background-color: v.$color-light-grey;
+
+  .letter-icon {
+    @include m.text-preset-header-sm-medium;
+
+    color: v.$color-grey-navy;
+    background-color: inherit;
+  }
+}
+
 %select-input {
   inline-size: 100%;
 
   input[type="radio"] {
     position: absolute;
     opacity: 0;
-  }
-
-  .text-area {
-    @include m.text-preset-header-sm-medium;
-
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
   }
 
   &:hover {
@@ -145,6 +148,17 @@
   gap: clamp(calc(v.$size-100 + v.$size-50), 1%, v.$size-300);
   outline: none;
   border: none;
+
+  .text-area {
+    @include m.text-preset-header-sm-medium;
+
+    inline-size: 30ch;
+    text-align: start;
+  }
+
+  .icon-area {
+    text-align: start;
+  }
 
   .correct {
     pointer-events: none;
@@ -233,19 +247,6 @@
   background-color: v.$color-purple;
 }
 
-.option-icon {
-  @include m.boxed-icon;
-
-  background-color: v.$color-light-grey;
-
-  .letter-icon {
-    @include m.text-preset-header-sm-medium;
-
-    color: v.$color-grey-navy;
-    background-color: inherit;
-  }
-}
-
 @media (min-width: 54rem) {
   .content {
     flex-direction: row;
@@ -253,6 +254,7 @@
     justify-content: start;
 
     .question-content {
+      // justify-content: stretch;
       flex: 1;
 
       .text-area {
@@ -261,7 +263,7 @@
     }
 
     .options-selection {
-      justify-content: stretch;
+      // justify-content: stretch;
       flex: 1;
     }
   }

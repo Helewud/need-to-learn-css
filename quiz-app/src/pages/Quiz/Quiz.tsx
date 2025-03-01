@@ -1,35 +1,38 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { Button } from "../../components/core/Button/Button";
-import { IncorrectIcon } from "../../components/core/Icon/Icon";
-import { PageContentContext } from "../../context/PageContentContext";
-import { QuizContext } from "../../context/QuizContext";
-import { ThemeContext } from "../../context/ThemeContext";
-import { Home } from "../HomePage";
-import { Result } from "../ResultPage";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "../../components/Button/Button";
+import { IncorrectIcon } from "../../components/Icon/Icon";
+import LoadingOverlay from "../../components/Layout/Loading";
+import { usePageSetup } from "../../hooks/usePageSetup";
+import { useQuizGenerator } from "../../hooks/useQuizGenerator";
+import { Home } from "../Home";
+import { Result } from "../Result";
 import styles from "./Quiz.module.scss";
 import { QuizInputGroup } from "./QuizInput";
 import { QuizProgressBar } from "./QuizProgressBar";
 
-export const Quiz = () => {
-  const { setPageContent } = useContext(PageContentContext);
-  const { theme } = useContext(ThemeContext);
-  const { quiz } = useContext(QuizContext);
+export const Quiz = ({ category }: { category: string }) => {
   const [questionCount, setQuestionCount] = useState(0);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const optionSelectionRef = useRef<HTMLDivElement>(null);
+  const { theme, quiz, setQuiz, setPageContent } = usePageSetup();
+  const { error } = useQuizGenerator(category, setIsLoading, setQuiz);
 
   useEffect(() => {
-    if (!quiz || !quiz.title || !quiz?.questions?.length || quiz.completed) {
+    if (error) {
       setPageContent(<Home />);
+      console.log(error);
+      return;
     }
-  }, [quiz, setPageContent]);
+  }, [error, setPageContent]);
 
-  // if (isLoading) {
-  //   return <LoadingOverlay content={"Setting Up Quiz Environment"} />;
-  // }
+  if (isLoading) {
+    return (
+      <LoadingOverlay theme={theme} content={"Setting Up Quiz Environment"} />
+    );
+  }
 
-  if (!quiz || !quiz.title || !quiz?.questions?.length) return;
+  if (!quiz) return;
 
   const { questions } = quiz;
   const currentQuestion = questions[questionCount];
@@ -49,6 +52,7 @@ export const Quiz = () => {
 
   const handleNext = (e: React.MouseEvent) => {
     e.preventDefault();
+
     if (!currentQuestion.selection) {
       setHasError(true);
       return;
@@ -62,7 +66,7 @@ export const Quiz = () => {
     }
 
     if (currentCount >= totalCount) {
-      quiz.completed = true;
+      quiz!.completed = true;
       setPageContent(<Result />);
     }
 
@@ -74,10 +78,10 @@ export const Quiz = () => {
     resetInputActiveState();
 
     const target = e.currentTarget as HTMLInputElement;
-    currentQuestion.selection = target.value!;
+    if (target) currentQuestion.selection = target.value!;
 
     const inputLabel = target.parentElement!;
-    inputLabel.classList.add(styles["active"]);
+    if (inputLabel) inputLabel.classList.add(styles["active"]);
   };
 
   return (
@@ -108,13 +112,11 @@ export const Quiz = () => {
         }
 
         <div className={styles["options-submission"]}>
-          {/* Option selection input group, options A,B,C,D */}
           <Button
             text={currentCount === totalCount ? "Finish Quiz" : "Next Question"}
             clickAction={handleNext}
           />
 
-          {/* Validation error message */}
           {hasError && (
             <div className={styles["validation-message-" + theme]}>
               <IncorrectIcon />

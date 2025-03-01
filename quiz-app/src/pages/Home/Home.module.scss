@@ -60,6 +60,31 @@
         position: absolute;
         opacity: 0;
       }
+
+      overflow-y: scroll;
+      block-size: 28rem;
+      scroll-behavior: smooth;
+      transition: scroll-top 0.3s ease;
+      padding: 0 inherit;
+      scroll-snap-type: y proximity;
+      scroll-snap-align: start;
+    }
+
+    .options-group::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .options-group::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .options-group::-webkit-scrollbar-thumb {
+      background: v.$color-purple;
+    }
+
+    .options-group::-webkit-scrollbar-thumb:hover {
+      background: v.$color-dark-navy;
     }
   }
 }

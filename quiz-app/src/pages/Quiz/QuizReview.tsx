@@ -1,48 +1,44 @@
-import { useContext, useEffect, useState } from "react";
-import { Button } from "../../components/core/Button/Button";
-import { PageContentContext } from "../../context/PageContentContext";
-import { QuizContext } from "../../context/QuizContext";
-import { ThemeContext } from "../../context/ThemeContext";
-import { Home } from "../HomePage";
-import { Result } from "../ResultPage";
+import { useCallback, useEffect, useState } from "react";
+import { Button } from "../../components/Button/Button";
+import { usePageSetup } from "../../hooks/usePageSetup";
+import { Home } from "../Home";
+import { Result } from "../Result";
 import styles from "./Quiz.module.scss";
 import { QuizInputGroup } from "./QuizInput";
 import { QuizProgressBar } from "./QuizProgressBar";
 
 export const QuizReview = () => {
-  const { setPageContent } = useContext(PageContentContext);
-  const { theme } = useContext(ThemeContext);
-  const { quiz } = useContext(QuizContext);
   const [questionCount, setQuestionCount] = useState(0);
+  const { theme, quiz, setPageContent } = usePageSetup();
 
   useEffect(() => {
-    if (!quiz || !quiz.title || !quiz?.questions?.length || !quiz.completed) {
+    if (!quiz) {
       setPageContent(<Home />);
+      return;
     }
   }, [quiz, setPageContent]);
 
-  if (!quiz || !quiz.title || !quiz?.questions?.length || !quiz?.completed) {
-    return;
-  }
-
-  const { questions } = quiz;
-  const currentQuestion = questions[questionCount];
+  let totalCount = 0;
   const currentCount = questionCount + 1;
-  const totalCount = questions.length;
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentCount < totalCount) {
       setQuestionCount((prev) => prev + 1);
       return;
     }
 
     setPageContent(<Result />);
-  };
+  }, [currentCount, totalCount, setPageContent]);
 
   const handlePrev = () => {
     setQuestionCount((prev) => prev - 1);
     return;
   };
+
+  if (!quiz) return;
+
+  const currentQuestion = quiz.questions[questionCount];
+  totalCount = quiz.questions.length;
 
   return (
     <div className={styles.content}>

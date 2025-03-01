@@ -1,37 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import { GetIconComponentByCategory } from "../../components/core/Icon/Icon";
-import { PageContentContext } from "../../context/PageContentContext";
-import { QuizContext } from "../../context/QuizContext";
-import { ThemeContext } from "../../context/ThemeContext";
-import { fetchQuiz } from "../../services/api";
-import { IQuiz, QuizCategory } from "../../types";
-import { Quiz } from "../QuizPage/Quiz";
+import { GetIconComponentByCategory } from "../../components/Icon/BoxedIcon";
+import { usePageSetup } from "../../hooks/usePageSetup";
+import { quizCategories, QuizCategory } from "../../types";
+import { Quiz } from "../Quiz";
 import styles from "./Home.module.scss";
 
 export const Home = () => {
-  const { setPageContent } = useContext(PageContentContext);
-  const { setQuiz } = useContext(QuizContext);
-  const { theme } = useContext(ThemeContext);
-  const [quizData, setQuizData] = useState<IQuiz[]>();
-
-  useEffect(() => {
-    (async () => {
-      const resp = await fetchQuiz();
-      if (resp instanceof Error) return;
-
-      setQuizData(resp);
-    })();
-  }, [setQuizData]);
-
-  if (!quizData) return;
+  const { theme, setPageContent } = usePageSetup();
 
   const handleQuizCategory = (e: React.MouseEvent) => {
     const target = e.target as HTMLInputElement;
-    const quiz = quizData.find((q) => q.title === target.value);
-    if (quiz) {
-      quiz.completed = false;
-      setQuiz(quiz);
-      setPageContent(<Quiz />);
+
+    if (quizCategories.includes(target.value as never)) {
+      setPageContent(<Quiz category={target.value} />);
     }
   };
 
@@ -49,7 +29,7 @@ export const Home = () => {
 
       <nav className={styles["category-options"]}>
         <ul className={styles["options-group"]}>
-          {quizData.map(({ title }, index) => {
+          {quizCategories.map((title, index) => {
             const icon = GetIconComponentByCategory(title as QuizCategory);
             return (
               <li key={index} data-category={title}>

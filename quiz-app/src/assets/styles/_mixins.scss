@@ -83,7 +83,7 @@
   justify-content: left;
   align-items: center;
   gap: v.$size-200;
-  padding: calc(v.$size-100 + v.$size-50);
+  padding: clamp(0.75rem, 0.5739rem + 0.7512vw, 1.25rem);
   border: 0;
   border-radius: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
   cursor: pointer;

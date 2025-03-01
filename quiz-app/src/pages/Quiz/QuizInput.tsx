@@ -1,4 +1,4 @@
-import { CorrectIcon, IncorrectIcon } from "../../components/core/Icon/Icon";
+import { CorrectIcon, IncorrectIcon } from "../../components/Icon/Icon";
 import { ThemeMode } from "../../types/index";
 import styles from "./Quiz.module.scss";
 
@@ -75,10 +75,9 @@ export const QuizInputGroup: React.FC<QuizInputGroupProps> = ({
               <span className={styles["letter-icon"]}>{optionLetter}</span>
             </span>
 
-            <span className={styles["text-area"]}>
-              <span>{op}</span>
-              {icon}
-            </span>
+            <span className={styles["text-area"]}>{op}</span>
+
+            <span className={styles["icon-area"]}>{icon}</span>
           </label>
         );
       })}
