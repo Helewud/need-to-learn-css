@@ -5,3 +5,77 @@
 }
 
 @import "tailwindcss";
+
+@theme {
+  --color-dark-purple: #301534;
+  --color-pink: #ad28eb;
+  --color-light-pink: #f8eeff;
+  --color-pale-purple: #8b6990;
+  --color-pure-white: #ffffff;
+}
+
+:root {
+  /* Screen Size - 375px - 1440px  */
+
+  --fluid-card-width: clamp(20.4375rem, 14.4296rem + 25.6338vw, 37.5rem);
+  --fluid-card-height: clamp(32.9375rem, 32.1012rem + 3.5681vw, 35.3125rem);
+  --fluid-card-border-radius: clamp(0.5rem, 0.3239rem + 0.7512vw, 1rem);
+  --fluid-card-logo-size: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
+  --fluid-card-padding: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
+  --fluid-card-gap: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+
+  --fluid-text-display: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+  --fluid-text-title: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  --fluid-text-body: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+
+  --fluid-gaq-gap: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+}
+
+@utility text-display {
+  font-family: "WorkSans", serif;
+  font-size: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+  font-weight: 700;
+  line-height: normal;
+}
+
+@utility text-title {
+  font-family: "WorkSans", serif;
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  font-weight: 600;
+  line-height: normal;
+}
+
+@utility text-body {
+  font-family: "WorkSans", serif;
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+  font-weight: 500;
+  line-height: normal;
+}
+
+hr {
+  inline-size: 100%;
+  block-size: 1px;
+  color: var(--color-light-pink);
+}
+
+#faq-toggle-1:checked ~ p,
+#faq-toggle-2:checked ~ p,
+#faq-toggle-3:checked ~ p,
+#faq-toggle-4:checked ~ p {
+  display: block;
+  transition: all 0.1s ease-in;
+}
+
+#faq-toggle-1:checked ~ label .faq-open,
+#faq-toggle-2:checked ~ label .faq-open,
+#faq-toggle-3:checked ~ label .faq-open,
+#faq-toggle-4:checked ~ label .faq-open {
+  display: none;
+}
+
+#faq-toggle-1:checked ~ label .faq-close,
+#faq-toggle-2:checked ~ label .faq-close,
+#faq-toggle-3:checked ~ label .faq-close,
+#faq-toggle-4:checked ~ label .faq-close {
+  display: block;
+}

@@ -13,5 +13,179 @@
     />
     <link href="./src/assets/styles/style.css" rel="stylesheet" />
   </head>
-  <body></body>
+  <body class="bg-light-pink">
+    <main
+      class="h-dvh h-vh -z-1 flex justify-center items-center text-body text-dark-purple"
+    >
+      <div class="w-full absolute -z-1 self-start">
+        <img
+          class="w-full sm:hidden"
+          src="./src/assets/images/background-pattern-mobile.svg"
+          alt="pattern backgrund for banner"
+        />
+        <img
+          class="w-full hidden sm:block"
+          src="./src/assets/images/background-pattern-desktop.svg"
+          alt="pattern backgrund for banner"
+        />
+      </div>
+
+      <section
+        class="w-(--fluid-card-width) h-(--fluid-card-height) bg-pure-white rounded-(--fluid-card-border-radius) p-(--fluid-card-padding) flex flex-col gap-(--fluid-card-gap)"
+      >
+        <h2 class="flex gap-[1.5rem] text-display items-center">
+          <img
+            class="w-(--fluid-card-logo-size) h-(--fluid-card-logo-size)"
+            src="./src/assets/icons/icon-star.svg"
+            alt="Star icon"
+          />
+          <span>FAQs</span>
+        </h2>
+
+        <article>
+          <div
+            class="flex flex-col gap-[1.5rem] items-center pt-(--fluid-gaq-gap) pb-(--fluid-gaq-gap)"
+          >
+            <input
+              type="checkbox"
+              id="faq-toggle-1"
+              class="absolute invisible"
+            />
+            <label
+              class="toggle-button w-full flex items-center"
+              for="faq-toggle-1"
+            >
+              <span class="w-[25ch] md:w-full text-title">
+                What is Frontend Mentor, and how will it help me?
+              </span>
+              <img
+                class="faq-open w-[1.875rem] h-[1.875rem] ml-[auto]"
+                src="./src/assets/icons/icon-plus.svg"
+                alt="Plus icon"
+              />
+              <img
+                class="faq-close w-[1.875rem] h-[1.875rem] ml-[auto] hidden"
+                src="./src/assets/icons/icon-minus.svg"
+                alt="Minus icon"
+              />
+            </label>
+            <p class="text-pale-purple text-body hidden">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+
+          <hr />
+
+          <div
+            class="flex flex-col gap-[1.5rem] items-center pt-(--fluid-gaq-gap) pb-(--fluid-gaq-gap)"
+          >
+            <input
+              type="checkbox"
+              id="faq-toggle-2"
+              class="absolute invisible"
+            />
+            <label
+              class="toggle-button w-full flex items-center"
+              for="faq-toggle-2"
+            >
+              <span class="w-[25ch] md:w-full mr-[auto] text-title">
+                Is Frontend Mentor free?
+              </span>
+              <img
+                class="faq-open w-[1.875rem] h-[1.875rem] ml-[auto]"
+                src="./src/assets/icons/icon-plus.svg"
+                alt="Plus icon"
+              />
+              <img
+                class="faq-close w-[1.875rem] h-[1.875rem] ml-[auto] hidden"
+                src="./src/assets/icons/icon-minus.svg"
+                alt="Minus icon"
+              />
+            </label>
+            <p class="text-pale-purple text-body hidden">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+
+          <hr />
+
+          <div
+            class="flex flex-col gap-[1.5rem] items-center pt-(--fluid-gaq-gap) pb-(--fluid-gaq-gap)"
+          >
+            <input
+              type="checkbox"
+              id="faq-toggle-3"
+              class="absolute invisible"
+            />
+            <label
+              class="toggle-button w-full flex items-center"
+              for="faq-toggle-3"
+            >
+              <span class="w-[25ch] md:w-full mr-[auto] text-title">
+                Can I use Frontend Mentor projects in my portfolio?
+              </span>
+              <img
+                class="faq-open w-[1.875rem] h-[1.875rem] ml-[auto]"
+                src="./src/assets/icons/icon-plus.svg"
+                alt="Plus icon"
+              />
+              <img
+                class="faq-close w-[1.875rem] h-[1.875rem] ml-[auto] hidden"
+                src="./src/assets/icons/icon-minus.svg"
+                alt="Minus icon"
+              />
+            </label>
+            <p class="text-pale-purple text-body hidden">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+
+          <hr />
+
+          <div
+            class="flex flex-col gap-[1.5rem] items-center pt-(--fluid-gaq-gap) pb-(--fluid-gaq-gap)"
+          >
+            <input
+              type="checkbox"
+              id="faq-toggle-4"
+              class="absolute invisible"
+            />
+            <label
+              class="toggle-button w-full flex items-center"
+              for="faq-toggle-4"
+            >
+              <span class="w-[25ch] md:w-full mr-[auto] text-title">
+                How can I get help if I'm stuck on a challenge?
+              </span>
+              <img
+                class="faq-open w-[1.875rem] h-[1.875rem] ml-[auto]"
+                src="./src/assets/icons/icon-plus.svg"
+                alt="Plus icon"
+              />
+              <img
+                class="faq-close w-[1.875rem] h-[1.875rem] ml-[auto] hidden"
+                src="./src/assets/icons/icon-minus.svg"
+                alt="Minus icon"
+              />
+            </label>
+            <p class="text-pale-purple text-body hidden">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
