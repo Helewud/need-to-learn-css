@@ -63,6 +63,10 @@ const projectList = [
     url: "https://ch-irc.netlify.app/",
     title: "Interactive Rating Component",
   },
+  {
+    url: "https://ch-accordion.netlify.app/",
+    title: "FAQ Accordion",
+  },
 ];
 
 class ProjectList {
