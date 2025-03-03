@@ -58,24 +58,16 @@ hr {
   color: var(--color-light-pink);
 }
 
-#faq-toggle-1:checked ~ p,
-#faq-toggle-2:checked ~ p,
-#faq-toggle-3:checked ~ p,
-#faq-toggle-4:checked ~ p {
-  display: block;
-  transition: all 0.1s ease-in;
-}
+.expand {
+  p {
+    display: block;
+  }
 
-#faq-toggle-1:checked ~ label .faq-open,
-#faq-toggle-2:checked ~ label .faq-open,
-#faq-toggle-3:checked ~ label .faq-open,
-#faq-toggle-4:checked ~ label .faq-open {
-  display: none;
-}
+  .faq-open {
+    display: none;
+  }
 
-#faq-toggle-1:checked ~ label .faq-close,
-#faq-toggle-2:checked ~ label .faq-close,
-#faq-toggle-3:checked ~ label .faq-close,
-#faq-toggle-4:checked ~ label .faq-close {
-  display: block;
+  .faq-close {
+    display: block;
+  }
 }
