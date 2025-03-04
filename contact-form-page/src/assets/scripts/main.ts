@@ -89,6 +89,18 @@ class ContactForm {
           element: field.element.parentElement,
         });
       }
+
+      // Validate email is valid
+      if (field.key === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(String(value).trim())) {
+          errors.push({
+            field: field.key,
+            // Use the parent element for error display context
+            element: field.element.parentElement,
+          });
+        }
+      }
     });
 
     // Validate that a query type is selected.
@@ -136,6 +148,18 @@ class ContactForm {
   }
 
   /**
+   * Resets form input and clears error messages
+   */
+  private resetForm(): void {
+    // Reset the form fields
+    this.elements.formElement.reset();
+
+    // hide all error messages
+    const allErrorMessages = document.querySelectorAll("p.error-message");
+    allErrorMessages.forEach((msg) => msg.classList.add("hidden"));
+  }
+
+  /**
    * Initializes event listeners for form submission and query option selection.
    */
   initialize(): void {
@@ -167,7 +191,6 @@ class ContactForm {
    * displays errors if any, or shows the success dialog upon valid submission.
    */
   private async handleFormSubmit(event: SubmitEvent): Promise<void> {
-    // Prevent the default form submission behavior.
     event.preventDefault();
 
     // Collect form data and validate the form.
@@ -180,6 +203,8 @@ class ContactForm {
       return;
     }
 
+    this.resetForm();
+
     // Toggle the success dialog to show submission success.
     this.elements.successDialog.classList.toggle("hidden");
 
@@ -190,11 +215,8 @@ class ContactForm {
         resolve(true);
       }, 5000);
     });
-
-    // reset form
-    window.location.reload();
   }
 }
-// Create an instance of the ContactForm and initialize event listeners.
+
 const contactForm = new ContactForm();
 contactForm.initialize();
