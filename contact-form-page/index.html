@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+
+    <link
+      rel="icon"
+      href="./src/assets/icons/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link href="./src/assets/styles/style.css" rel="stylesheet" />
+  </head>
+  <body class="grid bg-green-200">
+    <main class="mx-4 my-6 justify-items-center md:mt-[8rem]">
+      <section
+        class="bg-pure-white text-grey-900 grid gap-8 rounded-[1rem] p-6 md:w-(--fluid-card-width)"
+      >
+        <h2 class="text-heading">Contact Us</h2>
+        <form
+          id="contact-form"
+          class="text-body-s grid gap-6 md:grid-cols-2"
+          novalidate
+          method="get"
+        >
+          <div
+            class="grid gap-4 md:grid-cols-[1fr] md:grid-rows-[auto_auto_1fr]"
+          >
+            <label for="firstname" class="md:row-start-1">
+              First Name
+              <span aria-hidden="true text-green-600">*</span>
+              <span class="sr-only">required</span>
+            </label>
+            <input
+              type="text"
+              id="firstname"
+              class="form-input px-6 py-3 md:row-start-2"
+              name="firstname"
+              autocomplete="name"
+              aria-describedby="firstname_error"
+            />
+            <p
+              id="firstname_error"
+              class="error-message text-red md:row-start-3 md:text-red-600"
+            >
+              This field is required
+            </p>
+          </div>
+
+          <div
+            class="grid gap-4 md:grid-cols-[1fr] md:grid-rows-[auto_auto_1fr]"
+          >
+            <label for="lastname" class="md:row-start-1">
+              Last Name
+              <span aria-hidden="true text-green-600">*</span>
+              <span class="sr-only">required</span>
+            </label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              class="form-input px-6 py-3 md:row-start-2"
+              autocomplete="name"
+              aria-describedby="lastname_error"
+            />
+            <p
+              id="lastname_error"
+              class="error-message text-red md:row-start-3 md:text-red-600"
+            >
+              This field is required
+            </p>
+          </div>
+
+          <div class="grid gap-4 md:col-span-2 md:grid-rows-[auto_auto_1fr]">
+            <label for="email">
+              Email Address
+              <span aria-hidden="true text-green-600">*</span>
+              <span class="sr-only">required</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input px-6 py-3"
+              autocomplete="email"
+              aria-describedby="email_error"
+            />
+            <p id="email_error" class="error-message text-red">
+              Please enter a valid email address
+            </p>
+          </div>
+
+          <fieldset
+            id="query-type"
+            class="text-body-m grid gap-4 md:col-span-2 md:grid-cols-2 md:grid-rows-[auto_auto_1fr]"
+          >
+            <legend class="text-body-s mb-3">
+              Query Type
+              <span aria-hidden="true text-green-600">*</span>
+              <span class="sr-only">required</span>
+            </legend>
+
+            <label
+              for="general-query"
+              class="form-input flex items-center gap-4 px-6 py-3 md:col-span-1"
+            >
+              <input
+                type="radio"
+                id="general-query"
+                name="query-type"
+                value="general"
+                class="peer border-grey-500 h-[1.25rem] w-[1.25rem] appearance-none rounded-full border-2 md:checked:invisible"
+                aria-describedby="query_error"
+              />
+              <img
+                src="./src/assets/icons/icon-radio-selected.svg"
+                alt="radio selected icon"
+                class="hidden peer-checked:block"
+              />
+              <span>General Enquiry</span>
+            </label>
+
+            <label
+              for="support-query"
+              class="form-input flex items-center gap-4 px-6 py-3 md:col-span-1"
+            >
+              <input
+                type="radio"
+                id="support-query"
+                name="query-type"
+                value="support"
+                class="peer border-grey-500 h-[1.25rem] w-[1.25rem] appearance-none rounded-full border-2 md:checked:invisible"
+                aria-describedby="query_error"
+              />
+              <img
+                src="./src/assets/icons/icon-radio-selected.svg"
+                alt="radio selected icon"
+                class="hidden h-[1.25rem] w-[1.25rem] peer-checked:block"
+              />
+              <span>Support Enquiry</span>
+            </label>
+
+            <p
+              id="query_error"
+              class="error-message text-red text-body-s hidden"
+            >
+              Please select a query type
+            </p>
+          </fieldset>
+
+          <div class="grid gap-4 md:col-span-2 md:grid-rows-[auto_auto_1fr]">
+            <label for="message">
+              Message
+              <span aria-hidden="true text-green-600">*</span>
+              <span class="sr-only">required</span>
+            </label>
+            <textarea
+              rows="10"
+              name="message"
+              id="message"
+              class="form-input px-6 py-3 md:h-(--fluid-form-message-height)"
+              aria-describedby="message_error"
+            >
+            </textarea>
+            <p id="message_error" class="error-message text-red">
+              This field is required
+            </p>
+          </div>
+
+          <div class="grid gap-4 md:col-span-2 md:grid-rows-[auto_1fr]">
+            <div class="flex items-center gap-4 md:col-span-2">
+              <input
+                type="checkbox"
+                id="consent"
+                name="consent"
+                class="peer border-grey-500 h-[1.125rem] w-[1.25rem] appearance-none rounded-[2px] border-2 checked:hidden"
+                aria-describedby="consent_error"
+              />
+              <img
+                src="./src/assets/icons/icon-checkbox-check.svg"
+                alt="radio selected icon"
+                class="hidden h-[1.125rem] w-[1.25rem] peer-checked:block"
+              />
+              <label for="consent" class="w-[80%] md:w-full">
+                I consent to being contacted by the team
+                <span aria-hidden="true text-green-600">*</span>
+                <span class="sr-only">required</span>
+              </label>
+            </div>
+            <p id="consent_error" class="error-message text-red">
+              To submit this form, please consent to being contacted
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            id="contact-form-submit"
+            class="text-body-m-bold text-pure-white cursor-pointer rounded-[0.5rem] bg-green-600 px-10 py-4 hover:bg-[#063e34] md:col-span-2"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+
+      <section
+        id="success-dialog"
+        class="bg-grey-900 relative top-[-90%] grid hidden gap-2 rounded-[0.75rem] p-6 md:top-[-100%]"
+      >
+        <div class="text-pure-white flex gap-2">
+          <img
+            src="./src/assets/icons/icon-success-check.svg"
+            alt="check icon"
+          />
+          <h2>Message Sent!</h2>
+        </div>
+        <p class="text-green-200">
+          Thanks for completing the form. We'll be in touch soon!
+        </p>
+      </section>
+    </main>
+    <script type="module" src="./src/assets/scripts/main.ts"></script>
+  </body>
+</html>

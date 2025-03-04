@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Karla";
+  src: url("./../fonts/Karla/Karla-VariableFont_wght.ttf") format(truetype);
+  font-weight: 100 900;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --color-grey-900: #2a4144;
+  --color-grey-500: #86a2a5;
+  --color-green-600: #0c7d69;
+  --color-green-200: #e0f1e8;
+  --color-red: #d73c3c;
+  --color-pure-white: #ffffff;
+}
+
+:root {
+  /* Screen Size - 375px - 1440px  */
+
+  --fluid-card-width: clamp(43.125rem, 39.8393rem + 6.8452vw, 46rem);
+  --fluid-card-height: 48.3125rem;
+
+  --fluid-form-message-height: clamp(
+    6.5625rem,
+    10.1786rem + -4.0179vw,
+    8.25rem
+  );
+}
+
+@utility text-heading {
+  font-family: "Karla", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+@utility text-body-m-bold {
+  font-family: "Karla", serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+@utility text-body-m {
+  font-family: "Karla", serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+@utility text-body-s {
+  font-family: "Karla", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+@utility form-input {
+  border: solid var(--color-grey-500) 1px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@utility active-checked {
+  background-color: var(--color-green-200);
+  border-color: var(--color-green-600);
+}
