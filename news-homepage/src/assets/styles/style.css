@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("./../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf")
+    format(truetype);
+  font-weight: 100 900;
+}
+
+@theme {
+  --color-yellow: #e9aa52;
+  --color-silver: #c5c6ce;
+  --color-light-vermillion: #f15d51;
+  --color-gunmetal: #5e607a;
+  --color-dark-space-blue: #00001a;
+  --color-almost-white: #fffdfa;
+}
+
+:root {
+  /* Screen Size - 375px - 1440px  */
+
+  --fluid-card-width: clamp(43.125rem, 39.8393rem + 6.8452vw, 46rem);
+  --fluid-card-height: 48.3125rem;
+
+  --fluid-form-message-height: clamp(
+    6.5625rem,
+    10.1786rem + -4.0179vw,
+    8.25rem
+  );
+}
+
+@utility text-heading-xl {
+  font-family: "Inter", serif;
+  font-size: clamp(2.5rem, 2.1479rem + 1.5023vw, 3.5rem);
+  font-weight: 800;
+  line-height: normal;
+}
+
+@utility text-heading-l {
+  font-family: "Inter", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@utility text-heading-m {
+  font-family: "Inter", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@utility text-heading-s {
+  font-family: "Inter", serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 120%;
+}
+
+@utility text-heading-xs {
+  font-family: "Inter", serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 133%;
+}
+
+@utility text-body {
+  font-family: "Inter", serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 173%;
+}
+
+@utility text-nav {
+  font-family: "Inter", serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 133%;
+}
+
+@utility text-button {
+  font-family: "Inter", serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 171.5%;
+  letter-spacing: 0.27375rem;
+}

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News HomePage</title>
+
+    <link
+      rel="icon"
+      href="./src/assets/icons/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link href="./src/assets/styles/style.css" rel="stylesheet" />
+  </head>
+
+  <body
+    class="bg-almost-white h-vh text-body text-dark-space-blue md:grid-row-[auto_auto] grid h-dvh w-full gap-8 md:h-fit md:justify-center md:gap-14"
+  >
+    <!-- Page Header -->
+    <header
+      class="bg-almost-white py:10 fixed z-100 flex h-fit w-full items-center justify-between px-4 py-10 md:relative md:left-[50%] md:max-w-[69.375rem] md:transform-[translateX(-50%)] md:pt-20 md:pb-0"
+    >
+      <div class="h-fit">
+        <img src="./src/assets/icons/logo.svg" alt="letter w logo" />
+      </div>
+
+      <!-- Navigation Open Button -->
+      <div
+        id="nav-open"
+        class="h-fit md:hidden"
+        role="button"
+        tabindex="0"
+        aria-controls="side-nav"
+        aria-expanded="false"
+        aria-label="Open navigation menu"
+      >
+        <img src="./src/assets/icons/icon-menu.svg" alt="hambugger icon" />
+      </div>
+
+      <ul class="hidden gap-10 md:flex">
+        <li class="hover:text-light-vermillion active:text-light-vermillion">
+          <a href="">Home</a>
+        </li>
+        <li class="hover:text-light-vermillion active:text-light-vermillion">
+          <a href="">New</a>
+        </li>
+        <li class="hover:text-light-vermillion active:text-light-vermillion">
+          <a href="">Popular</a>
+        </li>
+        <li class="hover:text-light-vermillion active:text-light-vermillion">
+          <a href="">Trending</a>
+        </li>
+        <li class="hover:text-light-vermillion active:text-light-vermillion">
+          <a href="">Categories</a>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Side Nav (Mobile Navigation) -->
+    <nav
+      id="side-nav"
+      class="fixed z-9999 flex h-full w-full translate-x-full transform transition-transform duration-300 ease-in-out md:hidden"
+      aria-label="Mobile navigation"
+    >
+      <div class="bg-dark-space-blue w-[32%] opacity-70"></div>
+      <div class="bg-almost-white flex w-[68%] flex-col gap-22 px-6 py-7">
+        <!-- Navigation Close Button -->
+        <div
+          id="nav-close"
+          class="ml-auto"
+          role="button"
+          tabindex="0"
+          aria-controls="side-nav"
+          aria-label="Close navigation menu"
+        >
+          <img src="./src/assets/icons/icon-menu-close.svg" alt="Close icon" />
+        </div>
+
+        <ul class="text text-nav grid gap-6">
+          <li class="hover:text-light-vermillion active:text-light-vermillion">
+            <a href="">Home</a>
+          </li>
+          <li class="hover:text-light-vermillion active:text-light-vermillion">
+            <a href="">New</a>
+          </li>
+          <li class="hover:text-light-vermillion active:text-light-vermillion">
+            <a href="">Popular</a>
+          </li>
+          <li class="hover:text-light-vermillion active:text-light-vermillion">
+            <a href="">Trending</a>
+          </li>
+          <li class="hover:text-light-vermillion active:text-light-vermillion">
+            <a href="">Categories</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main
+      class="grid w-full gap-16 px-4 py-10 md:max-w-[69.375rem] md:grid-cols-6 md:grid-rows-[auto_auto] md:gap-x-8 md:gap-y-18 md:pt-0 md:pb-10"
+    >
+      <section class="grid gap-6 md:col-span-4">
+        <div>
+          <img
+            class="block h-full md:hidden"
+            src="./src/assets/images/image-web-3-mobile.jpg"
+            alt="Image of lego blocks"
+          />
+          <img
+            class="hidden h-full md:block"
+            src="./src/assets/images/image-web-3-desktop.jpg"
+            alt="Image of lego blocks"
+          />
+        </div>
+        <div class="grid gap-4 md:flex md:gap-8">
+          <h2 class="text-heading-xl min-w-[8ch]">
+            The Bright Future of Web 3.0?
+          </h2>
+          <div class="grid gap-6 md:gap-8">
+            <p class="text-gunmetal md:mb-auto">
+              We dive into the next evolution of the web that claims to put the
+              power of the platforms back into the hands of the people. But is
+              it really fulfilling its promise?
+            </p>
+            <div
+              class="text-button bg-light-vermillion hover:bg-dark-space-blue hover:text-almost-white active:bg-dark-space-blue active:text-almost-white flex h-[3rem] w-[11.5625rem] cursor-pointer items-center justify-center md:mt-auto"
+            >
+              <a href="">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside
+        class="bg-dark-space-blue text-almost-white grid gap-8 p-6 md:col-span-2 md:h-full"
+        role="complementary"
+        aria-label="Latest news"
+      >
+        <h2 class="text-heading-m text-yellow">New</h2>
+        <div>
+          <article class="grid gap-2" role="article">
+            <h2 class="text-heading-s hover:text-yellow active:text-yellow">
+              <a href="">Hydrogen VS Electric Cars</a>
+            </h2>
+            <p class="text-body text-silver">
+              Will hydrogen-fueled cars ever catch up to EVs?
+            </p>
+          </article>
+
+          <hr class="my-8 w-full border-[#5E607A]" />
+
+          <article class="grid gap-2" role="article">
+            <h2 class="text-heading-s hover:text-yellow active:text-yellow">
+              <a href="">The Downsides of AI Artistry</a>
+            </h2>
+            <p class="text-body text-silver">
+              What are the possible adverse effects of on-demand AI image
+              generation?
+            </p>
+          </article>
+
+          <hr class="my-8 w-full border-[#5E607A]" />
+
+          <article class="grid gap-2" role="article">
+            <h2 class="text-heading-s hover:text-yellow active:text-yellow">
+              <a href="">Is VC Funding Drying Up?</a>
+            </h2>
+            <p class="text-body text-silver">
+              Private funding by VC firms is down 50% YOY. We take a look at
+              what that means.
+            </p>
+          </article>
+        </div>
+      </aside>
+
+      <section class="grid gap-8 md:col-span-full md:h-fit md:grid-cols-3">
+        <article class="flex flex-row gap-6" role="article">
+          <div class="w-[29%]">
+            <img
+              class="h-full"
+              src="./src/assets/images/image-retro-pcs.jpg"
+              alt="picture of a retro pc"
+            />
+          </div>
+          <section class="grid h-fit w-[64%] gap-2">
+            <h2 class="grid gap-3">
+              <span class="text-heading-m text-light-vermillion">01</span>
+              <a
+                href=""
+                class="text-heading-xs text-dark-space-blue hover:text-light-vermillion active:text-light-vermillion"
+                >Reviving Retro PCs</a
+              >
+            </h2>
+            <p class="text-gunmetal">
+              What happens when old PCs are given modern upgrades?
+            </p>
+          </section>
+        </article>
+
+        <article class="flex flex-row gap-6" role="article">
+          <div class="w-[29%]">
+            <img
+              class="h-full"
+              src="./src/assets/images/image-top-laptops.jpg"
+              alt="image of a zoomed in laptop keyboard"
+            />
+          </div>
+          <section class="grid h-fit w-[64%] gap-2">
+            <h2 class="grid gap-3">
+              <span class="text-heading-m text-light-vermillion">02</span>
+              <a
+                href=""
+                class="text-heading-xs text-dark-space-blue hover:text-light-vermillion active:text-light-vermillion"
+                >Top 10 Laptops of 2022</a
+              >
+            </h2>
+            <p class="text-gunmetal">
+              Our best picks for various needs and budgets.
+            </p>
+          </section>
+        </article>
+
+        <article class="flex flex-row gap-6" role="article">
+          <div class="w-[29%]">
+            <img
+              class="h-full"
+              src="./src/assets/images/image-gaming-growth.jpg"
+              alt="image of an hand and game controller"
+            />
+          </div>
+          <section class="grid h-fit w-[64%] gap-2">
+            <h2 class="grid gap-3">
+              <span class="text-heading-m text-light-vermillion">03</span>
+              <a
+                href=""
+                class="text-heading-xs text-dark-space-blue hover:text-light-vermillion active:text-light-vermillion"
+                >The Growth of Gaming</a
+              >
+            </h2>
+            <p class="text-gunmetal">
+              How the pandemic has sparked fresh opportunities.
+            </p>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="./src/assets/scripts/main.ts"></script>
+  </body>
+</html>
