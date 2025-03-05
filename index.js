@@ -67,6 +67,14 @@ const projectList = [
     url: "https://ch-accordion.netlify.app/",
     title: "FAQ Accordion",
   },
+  {
+    url: "https://ch-contact-form.netlify.app/",
+    title: "Contact Form",
+  },
+  {
+    url: "https://ch-news-homepage.netlify.app/",
+    title: "News HomePage",
+  },
 ];
 
 class ProjectList {
